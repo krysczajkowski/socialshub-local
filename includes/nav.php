@@ -12,22 +12,17 @@ if($functions->loggedIn()) {
     <nav class="navbar navbar-expand-md navbar-dark py-1 shadow bg-dark sticky-top" style='opacity: 0.93; background-color: #1a1a1a!important;'>
         <div class="container">
                 <a href="home.php" class="navbar-brand">
-                    <div style='background-color: #1f1f1f; ' class='pr-4'>
+                    <div class='pr-4'>
                         <div style=' padding: 0; margin: 0;'>
 
-                            <span style="font-size: 1.7rem; letter-spacing: -2.8px!important;" class='font-logo font-open-sans'>
-                            <span style='color: #fffc00'>S</span>
-                            <span style='color: #3b5998'>o</span>
-                            <span style='color: #00aeef'>c</span>
-                            <span style='color: #7289da'>i</span>
-                            <span style='color: #e1306c'>a</span>
-                            <span style='color: #3b5998'>l</span>
-                            <span style='color: #fffc00'>s</span>
+                            <span style="font-size: 1.7rem; border-left: 1px solid white" class='font-logo font-open-sans pl-4'>
+                            Socials
                             </span>
 
-                            <div style='border: 1px solid #fefefe; width: auto; border-radius: 5px; background-color: #fefefe;' class='px-1 d-inline'>
+                            <div style='border: 1px solid #fefefe; width: auto; border-radius: 5px; background-color: #fefefe;' class='px-1 d-inline m-0'>
                                 <span style='font-weight: 700; color: #1f1f1f; font-size: 1.4rem;'>Hub</span>
                             </div>
+
                         </div>
                     </div>
                 </a>
