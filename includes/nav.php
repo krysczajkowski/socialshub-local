@@ -9,19 +9,14 @@ if($functions->loggedIn()) {
 }
 
 ?>
-    <nav class="navbar navbar-expand-md navbar-dark py-1 shadow bg-dark sticky-top" style='opacity: 0.93; background-color: #1a1a1a!important;'>
+    <nav class="navbar navbar-expand-md navbar-dark py-1 shadow bg-dark sticky-top" style='opacity: 0.93; background-color: #262626!important;'>
         <div class="container">
                 <a href="home.php" class="navbar-brand">
                     <div class='pr-4'>
                         <div style=' padding: 0; margin: 0;'>
 
-                            <span style="font-size: 1.7rem; border-left: 1px solid white" class='font-logo font-open-sans pl-4'>
-                            Socials
-                            </span>
-
-                            <div style='border: 1px solid #fefefe; width: auto; border-radius: 5px; background-color: #fefefe;' class='px-1 d-inline m-0'>
-                                <span style='font-weight: 700; color: #1f1f1f; font-size: 1.4rem;'>Hub</span>
-                            </div>
+                            <span style="font-size: 1.55rem; border-left: 1px solid white" class='font-logo font-open-sans pl-4'>
+                            SocialsHub</span><span style='font-size: 1rem;' class='font-open-sans font-logo'>.net</span>
 
                         </div>
                     </div>
