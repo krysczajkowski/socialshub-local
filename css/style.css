@@ -161,8 +161,6 @@ button, [type="submit"] {
 }
 
 .font-logo {
-    font-family: 'Rambla', sans-serif; 
-    letter-spacing: 1px;
     color: #fefefe;
     font-weight: 700;
 }
@@ -202,7 +200,7 @@ button, [type="submit"] {
     color: #000;
 }
 
-.socicon-facebbok {
+.socicon-facebook {
     color: #3b5998;
 }
 

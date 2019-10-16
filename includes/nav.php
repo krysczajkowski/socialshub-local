@@ -12,14 +12,22 @@ if($functions->loggedIn()) {
     <nav class="navbar navbar-expand-md navbar-dark py-1 shadow bg-dark sticky-top" style='opacity: 0.93; background-color: #262626!important;'>
         <div class="container">
                 <a href="home.php" class="navbar-brand">
-                    <div class='pr-4'>
-                        <div style=' padding: 0; margin: 0;'>
+                    
+                    <span style="border-left: 1px solid white" class='font-logo font-open-sans pl-4 medium-font'>
+                        <span style='letter-spacing: -2.5px;'>
+                            <span style='color: #ff0000;'>S</span>
+                            <span style='color: #f77737;'>o</span>
+                            <span style='color: #fffc00;'>c</span>
+                            <span style='color: #1da1f2;'>i</span>
+                            <span style='color: #7289da;'>a</span>
+                            <span style='color: #3b5998;'>l</span>
+                            <span style='color: #6441a5;'>s</span>
+                        </span>
+                        Hub
+                        <span style='font-size: 1rem; color: #fff; letter-spacing: 0.5px;'>.net</span>
+                    </span>
 
-                            <span style="font-size: 1.55rem; border-left: 1px solid white" class='font-logo font-open-sans pl-4'>
-                            SocialsHub</span><span style='font-size: 1rem;' class='font-open-sans font-logo'>.net</span>
-
-                        </div>
-                    </div>
+                    
                 </a>
                 <button class="navbar-toggler" data-toggle='collapse' data-target='#nav'>
                     <span class="navbar-toggler-icon"></span>
