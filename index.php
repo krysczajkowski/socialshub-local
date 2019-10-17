@@ -124,13 +124,13 @@
 
                     <div class="col-md-6 mt-3">
                         <div class="col-md-10">
-                            <div class="card card-body">
+                            <div class="card card-body shadow-sm">
                                 <?php include 'includes/login.php'; ?>
                             </div>
                         </div>
 
                         <div class="col-md-10 mt-3 mb-4">
-                            <div class="card card-body">
+                            <div class="card card-body shadow-sm">
                                 <div class="font-open-sans">
                                     <p class='h5 font-weight-bold'>Join future world largest social media website.</p>
                                     <p class='text-muted'><strong style='letter-spacing: 0.5px;'>It's easy and quick.</strong></p>
