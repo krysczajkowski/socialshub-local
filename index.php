@@ -135,7 +135,7 @@
                                     <p class='h5 font-weight-bold'>Join future world largest social media website.</p>
                                     <p class='text-muted'><strong style='letter-spacing: 0.5px;'>It's easy and quick.</strong></p>
                                 </div>
-                                 <?php include 'includes/signup-form.php'; ?>
+                                <?php include 'includes/signup-form.php'; ?>
 
                             </div>
                             
