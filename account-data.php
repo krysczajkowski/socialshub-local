@@ -14,6 +14,11 @@ if(!$functions->loggedIn()) {
     <?php include 'includes/nav.php'; 
         //We check is user active and if he is not we change his location to welcome.php
         $functions->isUserActive($user->active);
+
+        //Downloading user social medias
+        $sm = $functions->showSocialMedia($user->id);
+                                //Displaying social links :D
+
     ?>
 
     <div class="bg-white my-5 border rounded container">
@@ -38,10 +43,37 @@ if(!$functions->loggedIn()) {
             <div class="col-md-8 col-lg-9 border-left">
                 <div class="container my-4">
                     <div class="mt-3 mx-4">
-                        <div class="font-weight-normal mt-4" style='font-size: 1.8rem;'>Account Data</div>
+                        <div class="font-weight-bold mt-4" style='font-size: 1.4rem;'>Account Data</div>
                         <div class='my-2'><span class='font-weight-bold'>Email:</span> <?php echo $user->email; ?></div>
                         <div class='my-2'><span class='font-weight-bold'>Username:</span> <?php echo $user->screenName; ?></div>
                         <div class='my-2'><span class='font-weight-bold'>Bio:<br></span> <?php echo $user->bio; ?></div>
+                        <div class="my-2"><span class="font-weight-bold">Profile Visits: </span><?php echo $functions->showVisitors($user->id); ?></div>
+
+
+                        <div class="font-weight-bold mt-4" style='font-size: 1.2rem;'>Social Media Names & Links</div>
+
+                        <?php 
+                        foreach ($sm as $socialMediaRow) {
+                            if(!empty($socialMediaRow->smedia_name)) {
+                                echo "<div class='mt-3 ml-2'><span class='font-weight-bold'>$socialMediaRow->smedia</span></div>";
+                                echo "<div class='ml-4'><span class='font-weight-bold'>Username: </span>$socialMediaRow->smedia_name</div>";
+                                echo "<div class='ml-4'><span class='font-weight-bold'>Link: </span>$socialMediaRow->smedia_link</div>";
+
+                            }
+                        } 
+                                // echo "<a class='link d-flex smlink border-0' "; 
+                                // if(!empty($socialMediaRow->smedia_link)) {
+                                //     echo "href='$socialMediaRow->smedia_link'";
+                                // } else {
+                                //     echo '';
+                                // }
+                                // echo " target='_blank' type='button' name='$socialMediaRow->smedia'>";
+
+
+
+                        ?>
+
+                          
                     </div>
                 </div>
             </div>

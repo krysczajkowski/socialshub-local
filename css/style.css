@@ -19,13 +19,17 @@ pre {
     font-size: 1.5rem;
 }
 
+.small-font {
+    font-size: 1.2rem;
+}
+
 /*           TUTAJ           */
 .smlink {
     border: none!important;
     background: #fff;
 }
 
-button, [type="submit"] {
+a, [type="button"] {
    -webkit-appearance: none!important;
    -moz-appearance:    none!important;
    appearance:         none!important;
@@ -110,12 +114,6 @@ button, [type="submit"] {
 
 .stats div:nth-of-type(3){border:none;}
 
-
-
-
-.small-font {
-    font-size: 1.2rem;
-}
 
 .link {
     text-decoration: none!important;

@@ -58,8 +58,6 @@
                                 $sm = $functions->showSocialMedia($profileId);
                                 //Displaying social links :D
 
-                                echo "<form method='post'>";
-
                                 foreach ($sm as $socialMediaRow) {
                                     if(!empty($socialMediaRow->smedia_name)) {
                                         echo "<p class='p-0 ml-2 border-0'>";
@@ -71,15 +69,14 @@
                                             echo '';
                                         }
 
-                                        echo " target='_blank' type='submit' name='$socialMediaRow->smedia'>";
+                                        echo " target='_blank' type='button' name='$socialMediaRow->smedia'>";
                                         echo "<span class='socicon-$socialMediaRow->smedia' style='font-size: 1.9rem;'></span>";
                                         echo "<span class='mb-2 ml-3 w-75 user-social-name' style='font-size: 1.3rem; color: #404040;' > $socialMediaRow->smedia_name </span>";
                                         echo "</a>";
                                         echo "</p>";
                                     }
                                 }
-
-                                echo "</form>";
+                   
 
 
                                 //If this is logged in user's socials, add Edit button
