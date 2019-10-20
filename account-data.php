@@ -17,7 +17,6 @@ if(!$functions->loggedIn()) {
 
         //Downloading user social medias
         $sm = $functions->showSocialMedia($user->id);
-                                //Displaying social links :D
 
     ?>
 
@@ -55,21 +54,12 @@ if(!$functions->loggedIn()) {
                         <?php 
                         foreach ($sm as $socialMediaRow) {
                             if(!empty($socialMediaRow->smedia_name)) {
-                                echo "<div class='mt-3 ml-2'><span class='font-weight-bold'>$socialMediaRow->smedia</span></div>";
+                                echo "<div class='mt-3 ml-2'><span class='font-weight-bold' style='text-transform: capitalize'>$socialMediaRow->smedia</span></div>";
                                 echo "<div class='ml-4'><span class='font-weight-bold'>Username: </span>$socialMediaRow->smedia_name</div>";
                                 echo "<div class='ml-4'><span class='font-weight-bold'>Link: </span>$socialMediaRow->smedia_link</div>";
 
                             }
                         } 
-                                // echo "<a class='link d-flex smlink border-0' "; 
-                                // if(!empty($socialMediaRow->smedia_link)) {
-                                //     echo "href='$socialMediaRow->smedia_link'";
-                                // } else {
-                                //     echo '';
-                                // }
-                                // echo " target='_blank' type='button' name='$socialMediaRow->smedia'>";
-
-
 
                         ?>
 
