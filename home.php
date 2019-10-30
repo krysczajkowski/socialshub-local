@@ -8,7 +8,7 @@
 
 
     <div class="container mt-5">
-        <h3 class='mb-3'><b>Most Popular This Week</b></h3>
+        <h3 class='mb-3'><b>The Most Interesting Profiles This Week</b></h3>
         <div class="row">  
 
      <?php

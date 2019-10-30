@@ -1,3 +1,19 @@
+<?php 
+    require_once "fb-files/config.php";
+
+    if (isset($_SESSION['access_token'])) {
+        header('Location: fb-files/fb-logIn.php');
+        exit();
+    }
+
+    $redirectURL = "http://localhost/projekty/socialhub/fb-files/fb-callback.php";
+    $permissions = ['email'];
+    $loginURL = $helper->getLoginUrl($redirectURL, $permissions);
+    echo $loginURL;
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <!-- reCaptcha invisible code  -->
@@ -18,6 +34,8 @@
         header('Location:'.BASE_URL.$user->screenName);
         exit();       
     }
+
+    
     
     
     ?>
@@ -126,6 +144,7 @@
                         <div class="col-md-10">
                             <div class="card card-body shadow-sm">
                                 <?php include 'includes/login.php'; ?>
+                                <a href="<?php echo $loginURL; ?>" class="fb connect mt-1" style='width: 65%;'>Continue with Facebook</a>
                             </div>
                         </div>
 

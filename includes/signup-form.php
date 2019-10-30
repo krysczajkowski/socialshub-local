@@ -43,7 +43,7 @@ if(isset($_POST['nameRegister']) && isset($_POST['emailRegister']) && isset($_PO
                 $eRegiseter = "Sorry you can't be registered now.";
             } else {
                 //Adding user to database
-                $functions->register_user($reg_email, $reg_password, $reg_name);
+                $functions->register_user($reg_email, $reg_password, $reg_name, 0);
                 header('Location: welcome.php');
 
             }
