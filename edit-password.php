@@ -8,6 +8,10 @@ if(!$functions->loggedIn()) {
     header('Location: index.php');
 }
     
+if($functions->isUserFbUser($_SESSION['user_id'])) {
+    header('Location: index.php');
+}
+    
 // CHANGE PASSWORD CODE
 $eChangePassword = '';
 $sChangePassword = '';
@@ -52,9 +56,11 @@ if(isset($_POST['oldPassword']) && isset($_POST['newPassword']) && isset($_POST[
                     <div class="col-12 my-3 pl-4">
                         <a href="settings.php" class='text-dark h5 none-decoration'>Edit Profile</a>
                     </div>
-                    <div class="col-12 my-3 pl-4 border-left border-dark">
+                    <?php if(!$functions->isUserFbUser($user->id)) {?>
+                    <div class="col-12 my-3 pl-4">
                         <a href="edit-password.php" class='text-dark h5 none-decoration'>Change Password</a>
                     </div>
+                    <?php } ?>
                     <div class="col-12 my-3 pl-4">
                         <a href="privacy_and_security.php" class='text-dark h5 none-decoration'>Privacy and Security</a>
                     </div>

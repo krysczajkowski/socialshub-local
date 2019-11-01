@@ -1,4 +1,5 @@
 <?php 
+    error_reporting(0);
     require_once "fb-files/config.php";
 
     if (isset($_SESSION['access_token'])) {
@@ -9,7 +10,6 @@
     $redirectURL = "http://localhost/projekty/socialhub/fb-files/fb-callback.php";
     $permissions = ['email'];
     $loginURL = $helper->getLoginUrl($redirectURL, $permissions);
-    echo $loginURL;
 
 ?>
 
@@ -58,7 +58,7 @@
                     <button type="button" class='close' data-dismiss='alert'>
                         <span>&times;</span>
                     </button>
-                   <span class='text-white' style='color: #c0c0c0;'>Your account has been deleted. We hope you come back soon.</span>
+                   <span class='text-white' style='color: #c0c0c0;'>Your account has been deleted. <b>We hope you come back soon.</b></span>
                 </div>
             </div>
         <?php }  ?>
@@ -144,7 +144,7 @@
                         <div class="col-md-10">
                             <div class="card card-body shadow-sm">
                                 <?php include 'includes/login.php'; ?>
-                                <a href="<?php echo $loginURL; ?>" class="fb connect mt-1" style='width: 65%;'>Continue with Facebook</a>
+                                <a href="<?php echo $loginURL; ?>" class="fb connect mt-2" style='width: 65%;'>Continue with Facebook</a>
                             </div>
                         </div>
 

@@ -82,6 +82,14 @@ class Functions {
         return $user->id;
     }
     
+    public function isUserFbUser($id) {
+        $stmt = $this->pdo->prepare("SELECT fb_user FROM users WHERE id = :id");
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+
+        $user = $stmt->fetch(PDO::FETCH_OBJ);
+        return $user->fb_user;
+    }
     
     //       ACTIVATE USER FUNCTIONS
     public function activate_user() {
