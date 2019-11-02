@@ -116,9 +116,9 @@ $eDeleteA = '';
                                         <!-- INPUTS -->
                                         
                                         <?php if($functions->isUserFbUser($_SESSION['user_id'])) { ?>
-                                        <input type="email" class='form-control' placeholder="Confirm Your Email" name='email-confirm'>
+                                            <input type="email" class='form-control' placeholder="Confirm Your Email" name='email-confirm'>
                                         <?php } else { ?>
-                                        <input type="password" class='form-control' placeholder="Password" name='password'>
+                                            <input type="password" class='form-control' placeholder="Password" name='password'>
                                         <?php } ?>
                                         
                                         

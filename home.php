@@ -44,7 +44,7 @@
                         </div>
                     </div>
 
-                    <div class="xd">
+                    <div>
                         <div class="stats">
 
                             <?php for($k=0; $k < 3; $k++) { ?>
