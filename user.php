@@ -42,7 +42,6 @@
             </div>
         </div>
     </div>
-
     <div class="container mt-5">
         <span style='visibility: hidden;'>a</span>
             <div class="row">
@@ -84,6 +83,7 @@
                                    echo "<div class='container text-center text-muted' style='font-size: 1.1rem;'><br><a href='http://localhost/projekty/socialhub/settings.php' class='link'><i class='far fa-comment'></i> Edit Social Links</a></div>";
                                 }
 
+                            
                             ?> 
                         </div>
                     </div>
@@ -99,9 +99,15 @@
                             <?php //FOOTER OF CARD - View counter
                                 if(isset($_SESSION['user_id']) || isset($_COOKIE['user_id'])) {
                                     if($profileId === $_SESSION['user_id'] || $profileId === $_COOKIE['user_id']) { ?>
-                                    <span class='text-muted ml-3'>
-                                        <strong style='color: #555;'><?php echo $functions->showVisitors($profileId); ?></strong> Profile Visits 
-                                    </span>
+                                    <div class='text-muted ml-3'>
+                                        <strong style='color: #555;'>
+                                            <?php echo $functions->showVisitors($profileId); ?>
+                                        </strong> Profile Visits 
+                                        <span class='mx-2'>|</span> 
+                                        <strong style='color: #555;'>
+                                            <?php echo $functions->weekVisitors($profileId); ?>
+                                        </strong> Visits This Week
+                                    </div>
 
                                     <!-- <span class='ml-2 pl-2 text-muted border-left'><strong style='color: #555;'> -->
                             <?php //echo $functions->showViews($profileId) ; ?>
@@ -132,7 +138,7 @@
                     </div>
                 </div>
             </div>
-
+       
         <!-- CREATE A POST -->
 
         <div class="row">

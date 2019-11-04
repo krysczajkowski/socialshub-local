@@ -524,7 +524,14 @@ class Functions {
         return $stmt->fetchAll(PDO::FETCH_OBJ); 
     }
 
+    public function weekVisitors($id) {
+        $stmt = $this->pdo->prepare("SELECT COUNT(id) as weekVisits FROM visitors WHERE visit_date BETWEEN date_sub(now(),INTERVAL 1 WEEK) AND now()  AND account_id = :account_id");
+        $stmt->bindParam(':account_id', $id);
+        $stmt->execute();
 
+        //Returning number of visitors this week
+        return $stmt->fetch(PDO::FETCH_OBJ)->weekVisits;
+    }
     //       RANKING FUNCTIONS 
 
     public function rankingGenerator() {
