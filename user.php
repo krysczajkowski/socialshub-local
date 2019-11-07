@@ -122,7 +122,7 @@
     if(!empty($profileData->bio)) {
        echo $functions->text2link($profileData->bio);
     } else if (empty($profileData->bio) && $user->id === $profileData->id) {
-       echo "<div class='container text-center text-muted' style='font-size: 1.1rem;'>Write names of your social medias here <i class='far fa-comment'></i><br><a href='http://localhost/projekty/socialhub/settings.php' class='link'>Add Bio</a></div>";
+       echo "<a href='http://localhost/projekty/socialhub/settings.php' class='link'>Set your bio, name and pictures here</a></div>";
     }
 
     if ($user->id === $profileId) {
@@ -227,7 +227,7 @@
         <div class="container">
 
             <div class="d-flex">
-                <span style='font-size: 1.1rem;' class='pt-1'>SocialsHub.com uses cookies to give you the best possible experience.<a href="privacy-policy.php"> Read More</a></span>
+                <span style='font-size: 1.1rem;' class='pt-1'>SocialsHub.net uses cookies to give you the best possible experience.<a href="privacy-policy.php"> Read More</a></span>
 
                 <!-- Accept cookie button -->
                 <a href="?accept-cookies" class='btn btn-success font-weight-bold ml-auto' style='font-size: 1.1rem;'>OK</a>

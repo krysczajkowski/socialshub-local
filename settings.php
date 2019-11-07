@@ -67,7 +67,7 @@ if(!$functions->loggedIn()) {
 
                     // FILTERING SOCIAL MEDIA
  
-                    $socialmedia = ['youtube', 'instagram', 'tiktok', 'twitch', 'twitter', 'discord', 'snapchat','facebook', 'mail'];
+                    $socialmedia = ['youtube', 'instagram', 'tiktok', 'twitch', 'twitter', 'discord', 'snapchat','facebook', 'mail', 'steam','github'];
  
                     for($i = 0; $i < count($socialmedia); $i++) {
                         $sm = $functions->showSocialMediaName($user->id, $socialmedia[$i]);
@@ -227,8 +227,8 @@ if(!$functions->loggedIn()) {
                                     $socialmedia = ['youtube', 'instagram', 'tiktok', 'twitch', 'twitter', 'discord', 'snapchat','facebook', 'mail'];
 
                                     for($i = 0; $i < count($socialmedia); $i++) {
-                                        $sm = $functions->showSocialMediaName($user->id, $socialmedia[$i]);
                                         //$functions->addSocialMedia($user->id, $socialmedia[$i]);
+                                        $sm = $functions->showSocialMediaName($user->id, $socialmedia[$i]);
                                         $smName = $sm[0]->smedia_name;
                                         
                                         echo "

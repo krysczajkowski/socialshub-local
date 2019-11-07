@@ -158,8 +158,10 @@ class Functions {
         if($fb_user == 1) {
             $hash = '';
             $user_active = 1;
+            $profilePicture = $_SESSION['profilePicture'];
         } else {
             $hash = md5($password);
+            $profilePicture = 'images/defaultProfileImage.png';
         }
         
         
@@ -167,12 +169,13 @@ class Functions {
         $validationCode = md5($screenName . microtime());
         $remember = 0;
 
-        $stmt = $this->pdo->prepare("INSERT INTO `users` (`email`, `password`, `screenName`, `validationCode`, `active` , `profileImage`, `profileCover`, `fb_user`) VALUES (:email, :password, :screenName, :validationCode, $user_active ,'images/defaultProfileImage.png', 'images/defaultCoverImage.png', $fb_user)");
+        $stmt = $this->pdo->prepare("INSERT INTO `users` (`email`, `password`, `screenName`, `validationCode`, `active` , `profileImage`, `profileCover`, `fb_user`) VALUES (:email, :password, :screenName, :validationCode, $user_active ,:profilePicture, 'images/defaultCoverImage.png', $fb_user)");
 
 	    $stmt->bindParam(":email", $email, PDO::PARAM_STR);
  	    $stmt->bindParam(":password", $hash , PDO::PARAM_STR);
 	    $stmt->bindParam(":screenName", $screenName, PDO::PARAM_STR);
 	    $stmt->bindParam(":validationCode", $validationCode, PDO::PARAM_STR);
+	    $stmt->bindParam(":profilePicture", $profilePicture);
         $stmt->execute();
 
         $user_id = $this->pdo->lastInsertId();
@@ -532,6 +535,8 @@ class Functions {
         //Returning number of visitors this week
         return $stmt->fetch(PDO::FETCH_OBJ)->weekVisits;
     }
+    
+    
     //       RANKING FUNCTIONS 
 
     public function rankingGenerator() {

@@ -17,7 +17,7 @@ if($functions->userIdByEmail($_SESSION['fb-userData']['email'])) {
     
     setcookie('email', $email, time() + 5184000); //Ustawiamy sesje zeby go kilka miesiecy nie wylogowywalo
     setcookie('user_id', $user->id, time() + 5184000);
-        
+    
     header('Location: '. BASE_URL. $user->screenName);
     
 } else {
@@ -31,13 +31,18 @@ if($functions->userIdByEmail($_SESSION['fb-userData']['email'])) {
     $validationCode = md5(microtime() . $lastName);
     $randomNumber = rand(9,14);
     
+    //We need to send this url to functions.php
+    $_SESSION['profilePicture'] = $_SESSION['fb-userData']['picture']['url'];
+    
+    
     //Making as unique as possibble screenName for new user
     $screenName = substr($firstName, 0, 4) . substr($lastName, 0, 4) . substr($validationCode, 0, $randomNumber);
     $functions->register_user($email, '', $screenName, 1);
     
     $userId = $functions->userIdByEmail($email);
     $user = $functions->user_data($userId);
-        
+      
+    
     header('Location: '. BASE_URL. $user->screenName);
     
 }
