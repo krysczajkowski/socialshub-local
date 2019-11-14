@@ -15,8 +15,8 @@ if($functions->userIdByEmail($_SESSION['fb-userData']['email'])) {
     
     $user = $functions->user_data($userId);
     
-    setcookie('email', $email, time() + 5184000); //Ustawiamy sesje zeby go kilka miesiecy nie wylogowywalo
-    setcookie('user_id', $user->id, time() + 5184000);
+    setcookie('email', $email, time() + 5184000, '/'); //Setting cookie to not log out user
+    setcookie('user_id', $user->id, time() + 5184000, '/'); // '/' means we set this cookie global
     
     header('Location: '. BASE_URL. $user->screenName);
     
@@ -42,6 +42,8 @@ if($functions->userIdByEmail($_SESSION['fb-userData']['email'])) {
     $userId = $functions->userIdByEmail($email);
     $user = $functions->user_data($userId);
       
+    setcookie('email', $email, time() + 5184000, '/'); //Setting cookie to not log out user
+    setcookie('user_id', $user->id, time() + 5184000, '/'); // '/' means we set this cookie global
     
     header('Location: '. BASE_URL. $user->screenName);
     
