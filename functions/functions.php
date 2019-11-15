@@ -140,8 +140,8 @@ class Functions {
             $user = $stmt->fetch(PDO::FETCH_OBJ);
 
             if($remember == 'on') {
-                setcookie('email', $email, time() + 5184000); //Ustawiamy sesje zeby go kilka miesiecy nie wylogowywalo
-                setcookie('user_id', $user->id, time() + 5184000);
+                setcookie('email', $email, time() + 5184000, '/'); //Ustawiamy sesje zeby go kilka miesiecy nie wylogowywalo
+                setcookie('user_id', $user->id, time() + 5184000, '/');
             }
 
             $_SESSION['user_id'] = $user->id;

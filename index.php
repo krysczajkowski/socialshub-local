@@ -1,5 +1,8 @@
 <?php 
     error_reporting(0);
+
+    ob_start();
+
     require_once "fb-files/config.php";
 
     if (isset($_SESSION['access_token'])) {
@@ -22,7 +25,8 @@
     <?php include 'includes/head.php'; 
     
     if($functions->loggedIn()) {
-        
+//        echo 'sesja: '. $_SESSION['user_id'];
+//        echo 'cookie: '. $_COOKIE['user_id'];
         if(isset($_SESSION['user_id'])) {
             $user_id = $_SESSION['user_id'];
         } else if (isset($_COOKIE['user_id'])) {
@@ -34,10 +38,6 @@
         header('Location:'.BASE_URL.$user->screenName);
         exit();       
     }
-
-    
-    
-    
     ?>
     <body>  
        
