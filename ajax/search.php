@@ -10,7 +10,7 @@ if(isset($_POST['search']) && !empty($_POST['search'])) {
      echo "<div class='kurwa'>";
 
      //Robimy obiekt każdego wyszukanego usera w html
-         foreach($result as $user){ 
+     foreach($result as $user){ 
 
          echo "<div>";
             echo "<a href='".BASE_URL."$user->screenName' class='search-link'>";

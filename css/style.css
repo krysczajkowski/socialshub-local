@@ -5,6 +5,7 @@ body {
     margin: 0;
 }
 
+
 pre {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
@@ -23,6 +24,9 @@ pre {
     font-size: 1.2rem;
 }
 
+.grey-font {
+    color: #555;
+}
 /* Facebook button */
 
 a.fb {
@@ -56,13 +60,6 @@ a.fb {
 }
 
 
-
-
-
-.smlink {
-    border: none!important;
-    background: #fff;
-}
 
 a, [type="button"] {
    -webkit-appearance: none!important;

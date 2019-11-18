@@ -62,8 +62,7 @@
                 </div>
             </div>
         <?php }  ?>
-        
-        
+            
         <div class="container mt-3">
             <div class="row">
                 <div class="col-md-6 medium-font mt-4 ">

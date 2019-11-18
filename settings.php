@@ -113,8 +113,10 @@ if(!$functions->loggedIn()) {
     // Dodaj tego javascripta ale przed praca na obrazkach sprawdź czy uploadProfile itp w ogole istnieje, jeżeli tak to zacznij prace, jak ją skończysz to obowiązkowo po próbuj hackować strone 
     
     ?>
+    
+    
     <div class="bg-white my-5 border rounded container">
-        <div class="row">
+        <div class="row settings-card">
            
             <!-- LEFT SETTINGS PANEL -->
             <div class="d-none d-md-block col-md-4 col-lg-3">
