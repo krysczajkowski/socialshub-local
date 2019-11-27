@@ -45,7 +45,7 @@ if($functions->userIdByEmail($_SESSION['fb-userData']['email'])) {
     setcookie('email', $email, time() + 5184000, '/'); //Setting cookie to not log out user
     setcookie('user_id', $user->id, time() + 5184000, '/'); // '/' means we set this cookie global
     
-    header('Location: '. BASE_URL. $user->screenName);
+    header('Location: settings.php');
     
 }
 
