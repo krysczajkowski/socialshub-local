@@ -27,6 +27,24 @@ pre {
 .grey-font {
     color: #555;
 }
+
+.border-none {
+    border: none!important;
+}
+
+.settings-links_remove {
+    background: none;
+    border: none;
+    color: #aaa;
+    transition: .3s ease, color .3s ease;
+    cursor: pointer;
+}
+
+.settings-links_remove:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
 /* Facebook button */
 
 a.fb {
@@ -257,6 +275,28 @@ a, [type="button"] {
 .socicon-mail {
     color: #168de2;
 }
+
+.socicon-github {
+    color: #4078c0;
+}
+
+.socicon-linkedin {
+    color: #0077b5;
+}
+
+.socicon-pinterest {
+    color: #bd081c;
+}
+
+.socicon-spotify {
+    color: #1db954;
+}
+
+.socicon-soundcloud {
+    color: #ff3300;
+}
+
+
 
 
 .index-list-header {

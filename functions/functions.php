@@ -482,34 +482,37 @@ class Functions {
 
     }
 
-    public function updateSocialMedia ($account_id, $socialmedia, $name, $link) {
-        $stmt = $this->pdo->prepare("SELECT * FROM social_links WHERE account_id = :account_id AND smedia = :smedia");
+    public function updateSocialLinks ($account_id, $socialmedia, $name, $link) {
+        $stmt = $this->pdo->prepare("UPDATE social_links SET smedia_name = :smedia_name , smedia_link = :smedia_link WHERE account_id = :account_id AND smedia = :smedia");
+        
+        $stmt->bindParam(':smedia_name', $name);
+        $stmt->bindParam(':smedia_link', $link);
         $stmt->bindParam(':account_id', $account_id);
         $stmt->bindParam(':smedia', $socialmedia);
-        $stmt->execute();
-
-        // Creating new row in db || Updating existing row in db
-        if($stmt->rowCount() == 0) {
-            //
-            $stmt = $this->pdo->prepare("INSERT INTO social_links (id, account_id, smedia, smedia_name, smedia_link) VALUES (NULL,:account_id, :smedia, :smedia_name, :smedia_link)");
-
-            $stmt->bindParam(':account_id', $account_id);
-            $stmt->bindParam(':smedia', $socialmedia);
-            $stmt->bindParam(':smedia_name', $name);
-            $stmt->bindParam(':smedia_link', $link);
-            $stmt->execute();  
-                     
-        } else {
-            $stmt = $this->pdo->prepare("UPDATE social_links SET smedia_name = :smedia_name , smedia_link = :smedia_link WHERE account_id = :account_id AND smedia = :smedia");
-            
-            $stmt->bindParam(':smedia_name', $name);
-            $stmt->bindParam(':smedia_link', $link);
-            $stmt->bindParam(':account_id', $account_id);
-            $stmt->bindParam(':smedia', $socialmedia);
-            $stmt->execute();
-        }
+        $stmt->execute();           
     }
+    
+    public function addNewSocialMedia ($account_id) {
 
+        $newSocialMedia = ['github', 'linkedin', 'pinterest', 'spotify', 'soundcloud'];
+
+        for($i=0; $i < count($newSocialMedia); $i++) {
+            $stmt = $this->pdo->prepare("SELECT * FROM social_links WHERE account_id = :account_id AND smedia = :smedia");
+            $stmt->bindParam(':account_id', $account_id);
+            $stmt->bindParam(':smedia', $newSocialMedia[$i]);
+            $stmt->execute();
+
+            if($stmt->rowCount() == 0) {
+                $stmt = $this->pdo->prepare("INSERT INTO social_links (id, account_id, smedia) VALUES (NULL, :account_id, :smedia)");
+    
+                $stmt->bindParam(':account_id', $account_id);
+                $stmt->bindParam(':smedia', $newSocialMedia[$i]);
+                $stmt->execute(); 
+                        
+            }
+        }
+
+    }
 
     public function showSocialMedia ($account_id) {
         $stmt = $this->pdo->prepare("SELECT * FROM social_links WHERE account_id = :account_id");

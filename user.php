@@ -81,7 +81,7 @@
 
                                 //If this is logged in user's socials, add Edit button
                                 if($user->id === $profileId) {
-                                   echo "<div class='container text-center text-muted' style='font-size: 1.1rem;'><br><a href='http://localhost/projekty/socialhub/settings.php' class='link'><i class='far fa-comment'></i> Edit Social Links</a></div>";
+                                   echo "<div class='container text-center text-muted' style='font-size: 1.1rem;'><br><a href='http://localhost/projekty/socialhub/settings-links.php' class='link'><i class='far fa-comment'></i> Edit Social Links</a></div>";
                                 }
 
                             
@@ -137,9 +137,17 @@
                         </div>
 
                     </div>
+
+                    <!-- MY CUSTOM LINKS DISPLAY -->
+                    <a href="" class='btn btn-outline-light btn-block font-weight-bold mt-4 mb-2 py-3 ' style='border-radius: 1px!important; border: 2px solid #fff; font-size: 1.2rem;'>My Facebook Group</a>
+
+
+
+
                 </div>
             </div>
        
+
         <!-- CREATE A POST -->
 
         <div class="row">
