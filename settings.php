@@ -10,7 +10,6 @@ if(!$functions->loggedIn()) {
 ?>
  
 <body>
-   
     <?php include 'includes/nav.php';
         //We check is user active and if he is not we change his location to welcome.php
         $functions->isUserActive($user->active);
@@ -70,12 +69,12 @@ if(!$functions->loggedIn()) {
                     foreach ($sm as $socialMediaRow) {
 
                         $smedia = $socialMediaRow->smedia;                    
-                                        
+                            
                         
                         $smedia_name = $functions->checkInput($_POST[$smedia . '-name']);
                         $smedia_link = $functions->checkInput($_POST[$smedia . '-link']);
                         
-                      
+                        //$_SESSION[$smedia . '-inputName'] = $smedia_name;
                         
                         if((empty($smedia_name)) || (!empty($smedia_name) && strlen($smedia_name) < 30)) { 
                             
@@ -89,7 +88,7 @@ if(!$functions->loggedIn()) {
                                       
                         } else {
                             $changes_success = 0;
-                            $_SESSION['eSettings'] = $sm[0]->smedia . ' name must be under 30 letters.';
+                            $_SESSION['eSettings'] = $smedia . ' name must be under 30 letters.';
                         } 
                                                 
                     }
@@ -104,9 +103,11 @@ if(!$functions->loggedIn()) {
         }
 
     // Dodaj tego javascripta ale przed praca na obrazkach sprawdź czy uploadProfile itp w ogole istnieje, jeżeli tak to zacznij prace, jak ją skończysz to obowiązkowo po próbuj hackować strone 
-    
+
+        
     ?>
     
+
     
     <div class="bg-white my-5 border rounded container">
         <div class="row settings-card">
@@ -213,7 +214,7 @@ if(!$functions->loggedIn()) {
                                 <div class='row'>
                                     <?php    
                                     foreach ($sm as $socialMediaRow) {
-                                            
+                                        
                                         echo "
                                             <div class='col-10'>
                                             <div class='input-group settings-social-input p-0'>
@@ -225,7 +226,8 @@ if(!$functions->loggedIn()) {
                                                 <input type='text' placeholder='Your ".$socialMediaRow->smedia."' class='form-control ' name='".$socialMediaRow->smedia."-name' id='".$socialMediaRow->smedia."-name' value='$socialMediaRow->smedia_name' >
                                                 <input type='url' placeholder='https://url' class='form-control' name='".$socialMediaRow->smedia."-link' id='".$socialMediaRow->smedia."-link' value=". $socialMediaRow->smedia_link .">
                                             </div>
-                                            </div>";
+                                            </div>"; 
+      
                                     } ?>
                                 </div>
                             </div>
