@@ -74,7 +74,8 @@ if(!$functions->loggedIn()) {
                         $smedia_name = $functions->checkInput($_POST[$smedia . '-name']);
                         $smedia_link = $functions->checkInput($_POST[$smedia . '-link']);
                         
-                        //$_SESSION[$smedia . '-inputName'] = $smedia_name;
+                        //Session to hold in input wrong (over 30 chars) social name
+                        $_SESSION[$smedia . '-inputName'] = $smedia_name;
                         
                         if((empty($smedia_name)) || (!empty($smedia_name) && strlen($smedia_name) < 30)) { 
                             
@@ -173,11 +174,18 @@ if(!$functions->loggedIn()) {
                             </div>
                             <div class="col-xs-12 col-md-9 d-flex align-items-center">
                                 <input type="text" class="form-control" value='<?php echo $user->screenName ?>' style='width: 65%;' name='name'>
+                            </div>                         
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-xs-12 col-md-3 d-flex justify-content-end justify-text-md-start"></div>
+                            <div class="col-xs-12 col-md-9 d-flex align-items-center">
+                                <p class='text-info font-weight-bold align-self-end' style='font-size: 0.8rem;'>Only letters and numbers allowed! </p>
                             </div>
                         </div>
                     
                         <!-- EMAIL INPUT -->
-                        <div class="row pt-3">
+                        <div class="row pt-1">
                             <div class="col-xs-12 col-md-3 py-2 d-flex justify-content-end justify-text-md-start">
                                 <strong>Email</strong>
                             </div>
@@ -215,6 +223,8 @@ if(!$functions->loggedIn()) {
                                     <?php    
                                     foreach ($sm as $socialMediaRow) {
                                         
+                                        $name = (isset($_SESSION[$socialMediaRow->smedia . '-inputName']) ? $_SESSION[$socialMediaRow->smedia . '-inputName'] : $socialMediaRow->smedia_name);
+                                        
                                         echo "
                                             <div class='col-10'>
                                             <div class='input-group settings-social-input p-0'>
@@ -223,11 +233,12 @@ if(!$functions->loggedIn()) {
                                                         <span class='medium-font settings-social-text p-0 socicon-$socialMediaRow->smedia'></span>
                                                     </span>
                                                 </div>
-                                                <input type='text' placeholder='Your ".$socialMediaRow->smedia."' class='form-control ' name='".$socialMediaRow->smedia."-name' id='".$socialMediaRow->smedia."-name' value='$socialMediaRow->smedia_name' >
+                                                <input type='text' placeholder='Your ".$socialMediaRow->smedia."' class='form-control ' name='".$socialMediaRow->smedia."-name' id='".$socialMediaRow->smedia."-name' value='$name' >
                                                 <input type='url' placeholder='https://url' class='form-control' name='".$socialMediaRow->smedia."-link' id='".$socialMediaRow->smedia."-link' value=". $socialMediaRow->smedia_link .">
                                             </div>
-                                            </div>"; 
-      
+                                            </div>";
+                                        
+                                        unset($_SESSION[$socialMediaRow->smedia . '-inputName']);
                                     } ?>
                                 </div>
                             </div>

@@ -139,7 +139,7 @@
                     </div>
 
                     <!-- MY CUSTOM LINKS DISPLAY -->
-                    <a href="" class='btn btn-outline-light btn-block font-weight-bold mt-4 mb-2 py-3 ' style='border-radius: 1px!important; border: 2px solid #fff; font-size: 1.2rem;'>My Facebook Group</a>
+                    <a href="" class='btn btn-outline-light btn-block font-weight-bold mt-4 mb-2 py-2 ' style='border-radius: 1px!important; border: 2px solid #fff; font-size: 1.2rem;'>My Facebook Group</a>
 
 
 
