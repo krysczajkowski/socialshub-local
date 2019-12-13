@@ -26,18 +26,19 @@ if(!$functions->loggedIn()) {
         if(isset($_POST['email']) && isset($_POST['name']) && isset($_POST['textarea']) ) {
             if(isset($_FILES['uploadProfile']) && isset($_FILES['uploadCover'])) {
 
-                $name   = $functions->checkInput($_POST['name']);
+                $name   = $_POST['name'];
                 $email  = $functions->checkInput($_POST['email']);
                 $bio    = $functions->checkInput($_POST['textarea']);
 
+                //$string = "KrysCzajkowski><?!@#";
+                $name = preg_replace("/[^a-zA-Z0-9]/", "", $name);
+                
                 if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     $_SESSION['eSettings'] = 'Invalid email.';
                 } else if (strlen($name) < 2 || strlen($name) > 25) {
                     $_SESSION['eSettings'] = 'Name must be between 2 and 25 characters.';
                 } else if ($name != $user->screenName && $functions->name_exist($name)) {
                     $_SESSION['eSettings'] = 'Sorry, this name is already taken.';
-                } else if(!preg_match('/^[a-zA-Z0-9]+$/', $name)) {
-                    $_SESSION['eSettings'] = 'Only letters and numbers allowed in name field.';
                 } else if ($email != $user->email && $functions->email_exist($email)) {
                     $_SESSION['eSettings'] = 'This email is already in use.';
                 } else {
