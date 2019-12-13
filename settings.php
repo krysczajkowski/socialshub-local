@@ -30,7 +30,6 @@ if(!$functions->loggedIn()) {
                 $email  = $functions->checkInput($_POST['email']);
                 $bio    = $functions->checkInput($_POST['textarea']);
 
-                //$string = "KrysCzajkowski><?!@#";
                 $name = preg_replace("/[^a-zA-Z0-9]/", "", $name);
                 
                 if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -181,7 +180,7 @@ if(!$functions->loggedIn()) {
                         <div class="row">
                             <div class="col-xs-12 col-md-3 d-flex justify-content-end justify-text-md-start"></div>
                             <div class="col-xs-12 col-md-9 d-flex align-items-center">
-                                <p class='text-info font-weight-bold align-self-end' style='font-size: 0.8rem;'>Only letters and numbers allowed! </p>
+                                <p class='text-secondary font-weight-bold align-self-end' style='font-size: 0.8rem;'>Only letters and numbers allowed! </p>
                             </div>
                         </div>
                     
