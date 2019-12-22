@@ -112,7 +112,7 @@
                                 <span class='index-list-header'>Join us!</span>
                             </div>
                             <div class="d-block" style='line-height: 28px;'>
-                                <span class='index-list-text'>Join the best thing since Netflix & Elon's new tesla </span>
+                                <span class='index-list-text'>Join the best thing since baseball & hotdogs.</span>
                             </div>
                         </div>
                     </div>

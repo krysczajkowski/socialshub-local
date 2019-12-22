@@ -33,17 +33,16 @@
 ?>
 
     <div class="container">
-        <!-- COVER IMAGE -->
         <div class="row d-flex mt-4">
             <!-- PROFILE IMAGE -->
-            <div class="col-lg-4 col-sm-5 col-6">
-                <div class='profileImage border rounded-circle shadow-sm ml-auto'></div>
+            <div class="col-md-4 col-sm-12">
+                <div class='profileImage border rounded-circle shadow-sm'></div>
             </div>
 
 
 
                <!-- RIGHT COLUMN -->
-                <div class="col-lg-8 col-sm-7 col-6">
+                <div class="col-md-8 col-sm-12">
                     <div class="pl-5">
                         <h4 class='font-open-sans my-3' style='letter-spacing: 0.5px; font-size: 1.7rem; text-transform: capitalize;'><?php echo $profileData->screenName; ?></h4>
 
@@ -57,21 +56,17 @@
 ?>
 </pre>
                         </div>
-<?php
-                             //FOOTER OF CARD - View counter
-                            if(isset($_SESSION['user_id']) || isset($_COOKIE['user_id'])) {
-                                if($profileId === $_SESSION['user_id'] || $profileId === $_COOKIE['user_id']) { ?>
-                                <div class='text-muted'>
-                                    <strong class='grey-font'>
-                                        <?php echo $functions->showVisitors($profileId); ?>
-                                    </strong> Profile Visits 
-                                    <span class='mx-2'>|</span> 
-                                    <strong class='grey-font'>
-                                        <?php echo $functions->weekVisitors($profileId); ?>
-                                    </strong> Visits This Week
-                                </div>
+                            <?php //FOOTER OF CARD - View counter ?>
+                                    <div class='text-muted'>
+                                        <strong class='grey-font'>
+                                            <?php echo $functions->showVisitors($profileId); ?>
+                                        </strong> Profile Visits 
+                                        <span class='mx-2'>|</span> 
+                                        <strong class='grey-font'>
+                                            <?php echo $functions->weekVisitors($profileId); ?>
+                                        </strong> Visits This Week
+                                    </div>
 
-                    <?php } } ?>
 
 <pre style='font-size: 1.2rem;' class='mt-3'>
 <?php
@@ -84,102 +79,48 @@
 ?>
 </pre>
 
+            </div>
+        </div>
+    </div>
+
+   <div class="container mt-2">
+            <div class="row"> 
+                <div class='col-lg-4 col-sm-5 col-6 mt-4 ml-2'>
+                    <div class="my-3 ml-5">
+                        <div class="pl-5">
+                            <?php 
+                                $sm = $functions->showSocialMedia($profileId);
+                                //Displaying social links :D
+
+                                foreach ($sm as $socialMediaRow) {
+                                    if(!empty($socialMediaRow->smedia_name)) {
+                                        echo "<div class='row my-2 mb-3'>";
+                                        echo "<a class='link d-flex border-0' "; 
+
+                                        if(!empty($socialMediaRow->smedia_link)) {
+                                            echo "href='$socialMediaRow->smedia_link'";
+                                        } else {
+                                            echo '';
+                                        }
+
+                                        echo " target='_blank' type='button' name='$socialMediaRow->smedia'>";
+                                        echo "<span class='socicon-$socialMediaRow->smedia mr-4' style='font-size: 1.9rem;'></span>";
+                                        echo "<span class='user-social-name' style='font-size: 1.4rem; color: #404040;' > $socialMediaRow->smedia_name </span>";
+                                        echo "</a>";
+                                        echo "</div>";
+                                    }
+                                }
+                            
+                            ?> 
+                        </div>
                     </div>
-
-
-
-
-
-
-        </div>
-    </div>
-
-    <div class="container mt-2">
-
-            <div class="row">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class='col-lg-4 col-sm-5 col-6 mt-4'>
-    <div class="my-3 ml-5">
-        <!-- d-flex justify-content-center -->
-        <div class="pl-5">
-            <?php 
-                $sm = $functions->showSocialMedia($profileId);
-                //Displaying social links :D
-
-                foreach ($sm as $socialMediaRow) {
-                    if(!empty($socialMediaRow->smedia_name)) {
-                        echo "<div class='row my-2 mb-3'>";
-                        echo "<a class='link d-flex smlink border-0' "; 
-
-                        if(!empty($socialMediaRow->smedia_link)) {
-                            echo "href='$socialMediaRow->smedia_link'";
-                        } else {
-                            echo '';
-                        }
-
-                        echo " target='_blank' type='button' name='$socialMediaRow->smedia'>";
-                        echo "<span class='socicon-$socialMediaRow->smedia mr-4' style='font-size: 1.9rem;'></span>";
-                        echo "<span class='user-social-name' style='font-size: 1.4rem; color: #404040;' > $socialMediaRow->smedia_name </span>";
-                        echo "</a>";
-                        echo "</div>";
-                    }
-                }
-            
-            ?> 
-        </div>
-    </div>
-</div>     
+                </div>     
 
                 <!-- LEFT COLUMN -->
                 <div class="col-lg-8 col-sm-7 col-6">
 
 
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-                    <!-- MY CUSTOM LINKS DISPLAY -->
-                    <a href="" class='btn btn-outline-light btn-block font-weight-bold mt-4 mb-2 py-2 ' style='border-radius: 1px!important; border: 2px solid #fff; font-size: 1.2rem;'>My Facebook Group</a>
-
-
-
 
                 </div>
             </div>

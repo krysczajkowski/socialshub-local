@@ -159,11 +159,7 @@ if(!$functions->loggedIn()) {
                             <div class="col-xs-12 col-md-9 d-flex align-items-center">
                                 <input type="file" id="uploadProfile" name="uploadProfile" style="visibility: hidden; width: 1px; height: 1px" multiple />
                                 <a href=""  class="font-weight-bold none-decoration pl-3"
-                                onclick="document.getElementById('uploadProfile').click(); return false">Change Profile Photo</a>
-
-                                <input type="file" id="uploadCover" name="uploadCover" style="visibility: hidden; width: 1px; height: 1px" multiple />
-                                <a href=""  class="font-weight-bold none-decoration px-2 d-block "
-                                onclick="document.getElementById('uploadCover').click(); return false">Change Cover Photo</a>  
+                                onclick="document.getElementById('uploadProfile').click(); return false">Change Profile Photo</a> 
                             </div>
                         </div>
                        

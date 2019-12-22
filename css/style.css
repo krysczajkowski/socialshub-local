@@ -333,9 +333,7 @@ label:focus,
     background-position: center;
 }
 
-.profileImage { 
-    left: 30px; 
-
+.profileImage {  
     width: 180px;
     height: 180px;
     background-repeat: no-repeat;
@@ -388,8 +386,9 @@ label:focus,
 
 @media (max-width: 575px) {
     .profileImage{
-        width: 180px;
-        height: 180px;
+        width: 150px;
+        height: 150px;
+        margin-left: 2rem;
     }
 }
 
@@ -406,6 +405,11 @@ label:focus,
     font-size: 1.1rem;
 }
 
+@media (min-width: 767px) {
+    .profileImage {
+        margin-left: auto;
+    }
+}
 
 /* Extra large devices (large desktops) */
 
