@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-12 mb-2 mt-1">
                     <p class='ranking-bio'>
-                        <?php echo substr($rankingUserData->bio, 0, 35) . ' ...  <a href="'. $rankingUserData->screenName.'" class="link" target="_blank">visit profile</a>' ?>
+                        <?php echo substr($rankingUserData->bio, 0, 45) . ' ...  <a href="'. $rankingUserData->screenName.'" class="link" target="_blank">visit profile</a>' ?>
                     </p>
                 </div>
 

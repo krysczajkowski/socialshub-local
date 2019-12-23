@@ -44,6 +44,9 @@ pre {
     text-decoration: underline;
 }
 
+
+
+
 /* Facebook button */
 
 a.fb {
@@ -390,12 +393,38 @@ label:focus,
         height: 150px;
         margin-left: 2rem;
     }
+
+
 }
 
 @media (max-width: 767px) {
     .justify-text-md-start {
         display: flex;
         justify-content: flex-start!important;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    /* NEW RANKING STYLES*/
+    .ranking-picture {
+        
+    }
+
+    .ranking-number {
+        margin-right: 20% !important;
+    }
+
+    .ranking-bio {
+        margin-left: 20% !important;
+    }
+
+    .ranking-name {
+        margin-left: 20% !important;
+    }
+
+    .ranking-social {
+        margin-left: 10% !important;
     }
 }
 
