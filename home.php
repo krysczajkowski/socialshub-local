@@ -6,135 +6,113 @@
 <body> 
     <?php include 'includes/nav.php'; ?>
 
+     <div class="p-3 row col-md-8 offset-md-2 mt-3">
+         <h3 class='ml-2 font-weight-bold'>The Most Interesting Profiles</h3>
+     </div>
 
-    <div class="container mt-5">
-        <h3 class='mb-3'><b>The Most Interesting Profiles This Week</b></h3>
+    <div class="container">
         <div class="row">  
 
-    <a href="<?php echo BASE_URL . $rankingUserData->screenName ?>" target='_blank' class='link'>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        </div>
+     <?php
+    
+    // Dodaj tego javascripta ale przed praca na obrazkach sprawdź czy uploadProfile itp w ogole istnieje, jeżeli tak to zacznij prace, jak ją skończysz to obowiązkowo po próbuj hackować strone 
+        $ranking = $functions->rankingGenerator();
+        
+        for($i=0; $i < count($ranking); $i++) {
+            $rankingUserId   = $ranking[$i]->account_id;
+            $rankingUserData = $functions->user_data($rankingUserId);    
+            $rankingUserSM   = $functions->showNotEmptySocialMedia($rankingUserId);   
+            $rankingPosition = $i + 1;
 
-    </a>
-
-
-
-            </div>
-
-
-
-<?php 
-echo '<pre>';
-$ranking = $functions->rankingGenerator();
-echo '</pre>';
-
-foreach($i as $ranking) {
-    echo 'dupa';
-}
-
-?>
-
-
-
-
-
-
-
-    <div class="p-3 row col-8 offset-2 mt-3 border-bottom border-secondary">
+            echo '<pre>';
+            //print_r();
+            echo '</pre>';
+            //print_r($rankingUserData[$i]);      
+    ?>
+    <div class="p-3 row col-md-8 offset-md-2 mt-3 border-bottom border-secondary">
         <div class="col-1 pt-3">
-            <h3 class='font-weight-bold '>#1</h3>
+            <h3 class='font-weight-bold ranking-number'><?php echo '#'.$rankingPosition; ?></h3>
         </div>
 
         <div class="col-2">
-            <img src="https://socialshub.net/images/image95B2BC0D06-54C4-4AD7-9632-9842D38DA577.jpeg" class='border rounded-circle shadow-sm' style='width: 5rem; height: 5rem;'>
+            <img src="<?php echo $rankingUserData->profileImage ?> " class='ranking-picture border rounded-circle shadow-sm' style='width: 5rem; height: 5rem;' >
         </div>
 
         <div class="col-8">
             <div class="row">
                 <div class="col-12">
-                    <h3 class='font-weight-bold w-50'>Julia</h3>
+                    <h3 class='font-weight-bold w-50 ranking-name'><?php echo $rankingUserData->screenName; ?></h3>
                 </div>
                 <div class="col-12 mb-2 mt-1">
-                    <?php echo substr('Hi! My name is Julia. I am 13 yo entrepreneur.', 0, 35) . " ...  <a href='krysczajkowski' class='link'>visit profile</a>"; ?>
-                    
+                    <p class='ranking-bio'>
+                        <?php echo substr($rankingUserData->bio, 0, 35) . ' ...  <a href="'. $rankingUserData->screenName.'" class="link" target="_blank">visit profile</a>' ?>
+                    </p>
                 </div>
+
                 <div class="col-12">
-                    <a href='http://localhost/projekty/socialhub/home.php'><span class='socicon-instagram mx-3' style='font-size: 1.9rem;'>
-                    </span></a>   
-                    <a href='http://localhost/projekty/socialhub/home.php'><span class='socicon-twitch mx-3' style='font-size: 1.9rem;'>
-                    </span></a>  
-                    <a href='http://localhost/projekty/socialhub/home.php'><span class='socicon-tiktok mx-3' style='font-size: 1.9rem;'>
-                    </span></a>  
+                    <?php 
+                        for($k=0; $k<3; $k++) {
+                            if(isset($rankingUserSM[$k]->smedia_link)) {
+                                $smedia_link = $rankingUserSM[$k]->smedia_link;
+                            
+                        
+                     ?>
+                        <a href="<?php echo $rankingUserSM[$k]->smedia_link ?>" class='link' target='_blank'><span class='socicon-<?php echo $rankingUserSM[$k]->smedia ?> mx-3 ranking-social' style='font-size: 1.9rem;'>
+                        </span></a> 
+                    <?php } } ?>  
                 </div>
+
             </div>
         </div>
 
     </div>
 
-    <div class="p-3 row col-8 offset-2 mt-3 border-bottom border-secondary">
+    <?php } // END OF THE LOOP ?>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+<!--     <div class="p-3 row col-md-8 offset-md-2 mt-3 border-bottom border-secondary">
         <div class="col-1 pt-3">
-            <h3 class='font-weight-bold '>#2</h3>
+            <h3 class='font-weight-bold ranking-number'>#2</h3>
         </div>
 
         <div class="col-2">
-            <img src="https://socialshub.net/images/image38me2019.jpg" class='border rounded-circle shadow-sm' style='width: 5rem; height: 5rem;'>
+            <img src="https://socialshub.net/images/image38me2019.jpg" class='ranking-picture border rounded-circle shadow-sm' style='width: 5rem; height: 5rem;' >
         </div>
 
         <div class="col-8">
             <div class="row">
                 <div class="col-12">
-                    <h3 class='font-weight-bold w-50'>Krystian</h3>
+                    <h3 class='font-weight-bold w-50 ranking-name'>Krystian</h3>
                 </div>
                 <div class="col-12 mb-2 mt-1">
-                    <?php echo substr('COOL GUY', 0, 35) . " ...  <a href='krysczajkowski' class='link'>visit profile</a>"; ?>
-                    
+                    <p class='ranking-bio'>
+                        <?php //echo substr('COOL GUY', 0, 35) . " ...  <a href='krysczajkowski' class='link'>visit profile</a>"; ?>
+                    </p>
                 </div>
                 <div class="col-12">
-                    <a href='http://localhost/projekty/socialhub/home.php'><span class='socicon-instagram mx-3' style='font-size: 1.9rem;'>
+                    <a href='http://localhost/projekty/socialhub/home.php'><span class='socicon-instagram mx-3 ranking-social' style='font-size: 1.9rem;'>
                     </span></a>   
-                    <a href='http://localhost/projekty/socialhub/home.php'><span class='socicon-facebook mx-3' style='font-size: 1.9rem;'>
+                    <a href='http://localhost/projekty/socialhub/home.php'><span class='socicon-facebook mx-3 ranking-social' style='font-size: 1.9rem;'>
                     </span></a>  
-                    <a href='http://localhost/projekty/socialhub/home.php'><span class='socicon-twitter mx-3' style='font-size: 1.9rem;'>
+                    <a href='http://localhost/projekty/socialhub/home.php'><span class='socicon-twitter mx-3 ranking-social' style='font-size: 1.9rem;'>
                     </span></a>  
                 </div>
             </div>
         </div>
 
-    </div>
-
-    <div class="p-3 row col-8 offset-2 mt-3 border-bottom border-secondary">
-        <div class="col-1 pt-3">
-            <h3 class='font-weight-bold '>#3</h3>
-        </div>
-
-        <div class="col-2">
-            <img src="https://socialshub.net/images/image784644dbf666cb703a3b5c2ffc8fd60411b0923408_full.jpg" class='border rounded-circle shadow-sm' style='width: 5rem; height: 5rem;'>
-        </div>
-
-        <div class="col-8">
-            <div class="row">
-                <div class="col-12">
-                    <h3 class='font-weight-bold w-50'>Pat</h3>
-                </div>
-                <div class="col-12 mb-2 mt-1">
-                    <?php echo substr('Future world largest content creator.', 0, 35) . " ...  <a href='krysczajkowski' class='link'>visit profile</a>"; ?>
-                    
-                </div>
-                <div class="col-12">
-                    <a href='http://localhost/projekty/socialhub/home.php'><span class='socicon-snapchat mx-3' style='font-size: 1.9rem;'>
-                    </span></a>   
-                    <a href='http://localhost/projekty/socialhub/home.php'><span class='socicon-twitch mx-3' style='font-size: 1.9rem;'>
-                    </span></a>  
-                    <a href='http://localhost/projekty/socialhub/home.php'><span class='socicon-youtube mx-3' style='font-size: 1.9rem;'>
-                    </span></a>  
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
-
+    </div> -->
 
 
     </div>

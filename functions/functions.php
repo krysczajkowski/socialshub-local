@@ -145,7 +145,7 @@ class Functions {
             }
 
             $_SESSION['user_id'] = $user->id;
-            header('Location: '. BASE_URL.$user->screenName);
+            header('Location: '.$user->screenName);
             exit();
         }
     }
@@ -516,6 +516,14 @@ class Functions {
 
     public function showSocialMedia ($account_id) {
         $stmt = $this->pdo->prepare("SELECT * FROM social_links WHERE account_id = :account_id");
+        $stmt->bindParam(':account_id', $account_id);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function showNotEmptySocialMedia ($account_id) {
+        $stmt = $this->pdo->prepare("SELECT * FROM social_links WHERE account_id = :account_id AND smedia_link != ''");
         $stmt->bindParam(':account_id', $account_id);
         $stmt->execute();
 
