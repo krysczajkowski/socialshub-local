@@ -11,13 +11,7 @@ if($functions->loggedIn()) {
 ?>
     <nav class="navbar navbar-expand-md navbar-dark py-1 shadow bg-dark sticky-top" style='opacity: 0.95; background-color: #262626!important;'>
         <div class="container">
-                <a href="<?php 
-                    if($functions->loggedIn()) {
-                        echo $user->screenName;
-                    } else {
-                        echo 'home.php';
-                    }
-                 ?>" class="navbar-brand">
+                <a href="index.php" class="navbar-brand">
                     
                     <span style="border-left: 1px solid white" class='font-logo font-open-sans pl-4 medium-font'>
                         <span style='letter-spacing: -2.6px;'>
@@ -54,7 +48,7 @@ if($functions->loggedIn()) {
                         <div class="dropdown">
                             <div class="profileImage-sm border rounded-circle dropdown-toggle"  id="dropdown" data-toggle="dropdown"></div>
                             <div class="dropdown-menu">
-                                <a href="<?php echo BASE_URL.$user->screenName ?>" class="dropdown-item"><i class="fas fa-user-circle"></i> <?php echo $user->screenName; ?> </a>                                                           
+                                <a href="<?php echo $user->screenName ?>" class="dropdown-item"><i class="fas fa-user-circle"></i> <?php echo $user->screenName; ?> </a>                                                           
                                 <a href="settings.php" class="dropdown-item"><i class="fas fa-cog"></i>  Settings</a>
                                 <a href="logout.php" class="dropdown-item"><i class="fas fa-user-times"></i>  Logout</a>
                                 <!-- DARK MODE SWITCH-->
@@ -69,10 +63,35 @@ if($functions->loggedIn()) {
                     
                   <?php  } else { ?>
                   
-                  <button onclick="window.location='index.php';" style='letter-spacing: 1px;' class='btn btn-sm px-3 btn-primary font-weight-bold'>Log In or Sign Up</button>
-                  
+                  <a href='signIn.php' class='mx-1 px-3 link font-weight-bold' style='color: rgba(250, 250, 250, 0.94);'>Log In</a>
+                  <a href='signUp.php' class='mx-1 px-3 link font-weight-bold' style='color: rgba(250, 250, 250, 1);'>Sign Up!</a>
+                  <!--  data-toggle="modal" data-target="#exampleModal" -->
                   <?php } ?>
 
                 </div>
         </div>
     </nav>
+
+    <!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body mt-3">
+        <?php //include 'includes/login.php'; ?>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <div class='row d-flex w-100'>
+            <div class="col-12">
+                <a href="<?php// echo $loginURL; ?>" class="fb connect mt-2 d-flex justify-content-center" style='width: 100%;' id='fb-index-button'>Continue with Facebook</a>
+            </div>
+            <div class="col-12">
+                <a href='index.php' class="btn btn-block btn-outline-secondary mt-2 font-weight-bold" style='border-radius: 2px!important;'>Sign Up</a>
+            </div>
+        </div>
+        
+        
+         <span class='text-muted'>Highly recommended!</span>    
+      </div>
+    </div>
+  </div>
+</div> -->

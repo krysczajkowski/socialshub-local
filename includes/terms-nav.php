@@ -52,7 +52,7 @@ if($functions->loggedIn()) {
                         <div class="dropdown">
                             <div class="profileImage-sm border rounded-circle dropdown-toggle"  id="dropdown" data-toggle="dropdown"></div>
                             <div class="dropdown-menu">
-                                <a href="<?php echo BASE_URL.$user->screenName ?>" class="dropdown-item"><i class="fas fa-user-circle"></i> <?php echo $user->screenName; ?> </a>
+                                <a href="<?php echo $user->screenName ?>" class="dropdown-item"><i class="fas fa-user-circle"></i> <?php echo $user->screenName; ?> </a>
                                 <a href="settings.php" class="dropdown-item"><i class="fas fa-cog"></i>  Settings</a>
                                 <a href="logout.php" class="dropdown-item"><i class="fas fa-user-times"></i>  Logout</a>
                             </div>
