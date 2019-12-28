@@ -85,8 +85,8 @@
 
    <div class="container mt-2">
             <div class="row"> 
-                <div class='col-lg-4 col-sm-5 col-6 mt-4 ml-2'>
-                    <div class="my-3 ml-5">
+                <div class='col-12 mt-4 UserSocialLinksBox'>
+                    <div class="my-3">
                         <div class="pl-5">
                             <?php 
                                 $sm = $functions->showSocialMedia($profileId);
@@ -105,7 +105,7 @@
 
                                         echo " target='_blank' type='button' name='$socialMediaRow->smedia'>";
                                         echo "<span class='socicon-$socialMediaRow->smedia mr-4' style='font-size: 1.9rem;'></span>";
-                                        echo "<span class='user-social-name' style='font-size: 1.4rem; color: #404040;' > $socialMediaRow->smedia_name </span>";
+                                        echo "<p class='user-social-name' style='font-size: 1.4rem; color: #404040;' > $socialMediaRow->smedia_name </p>";
                                         echo "</a>";
                                         echo "</div>";
                                     }
@@ -117,10 +117,7 @@
                 </div>     
 
                 <!-- LEFT COLUMN -->
-                <div class="col-lg-8 col-sm-7 col-6">
-
-
-                </div>
+                <div class="col-12"></div>
 
                 </div>
             </div>

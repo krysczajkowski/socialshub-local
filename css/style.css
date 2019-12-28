@@ -11,6 +11,10 @@ pre {
     font-size: 1.1em;
 }
 
+p {
+    word-break: break-all;
+}
+
 .lg-font {
     font-size: 1.7rem;
 }
@@ -44,7 +48,9 @@ pre {
     text-decoration: underline;
 }
 
-
+.UserSocialLinksBox {
+    margin-left: 4rem!important;
+}
 
 
 /* Facebook button */
@@ -402,6 +408,10 @@ label:focus,
         display: flex;
         justify-content: flex-start!important;
     }
+
+    .UserSocialLinksBox {
+        margin-left: 0!important;
+    }    
 }
 
 @media (max-width: 1000px) {
