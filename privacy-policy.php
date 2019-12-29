@@ -31,7 +31,7 @@
         Poland <br>
         Antonia Vivaldiego 18/1<br>
         52-129 Wroclaw <br>
-        socialhubpoland@gmail.com<br>
+        kczajkowski@socialshub.net<br>
         nr tel.: ---
     </div>
     
@@ -72,7 +72,7 @@
     <p>The website administrator is not responsible for damages resulting from making content incorrect, offensive or unlawful by someone.</p>
 
     <li class='font-weight-bold li-first mt-3'>Cookies</li>
-    <p>Socialshub.net uses "cookies" technology, which are text files placed on your device, to enable socialshub.net recognize you and customize Socialhub.com to your needs.</p>
+    <p>Socialshub.net uses "cookies" technology, which are text files placed on your device, to enable socialshub.net recognize you and customize socialshub.net to your needs.</p>
 
     <strong>The purposes for which cookies are used:</strong>
     <ol>
@@ -80,6 +80,7 @@
     <li><strong>Statistic Data</strong> - The administrator and external websites use cookies to collect and process statistical data such as, e.g. visitor statistics, User Device statistics or user behavior statistics. These data are collected for the purpose of analyzing and improving socialshub.net.</li>
     <li><strong>Password Reset</strong> - The administrator uses cookies to reset the password by users on socialshub.net.</li>
     <li><strong>Delete Account</strong> - The administrator uses cookies to display messages about the correct deletion of the account on socialshub.net.</li>
+    <li><strong>Message to users</strong> - The administrator uses cookies to display welcome message to the new users or message to active an account.</li>    
     </ol>
     
     <br>
