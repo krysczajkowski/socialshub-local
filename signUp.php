@@ -173,7 +173,7 @@
                         <div class="col-md-10 mt-3 mb-4">
                             <div class="pt-4 ">
                                 <div class="font-open-sans">
-                                    <p class='font-weight-bold' style='font-size: 1.1rem;'>Join future world largest social links hub.</p>
+                                    <p class='font-weight-bold' style='font-size: 1.1rem;'>Join future world's biggest social links hub.</p>
                                 </div>
                                 <form action="signUp.php" method="post" id='i-recaptcha'>
                                     <input type="text" value='<?php if(isset($reg_name)) {echo $reg_name;} ?>' class="form-control" placeholder='Name' name='nameRegister'>
@@ -190,6 +190,9 @@
                                         <input type="checkbox" class="custom-control-input" id="accept-privacy" name='accept-privacy'>
                                         <label class="custom-control-label" for="accept-privacy" style='font-size: 0.95rem;'>I agree to the <a href="privacy-policy.php" target="_blank" class='text-primary'>Privacy Policy</a>, including use of cookies</label>
                                     </div>
+
+                                   
+
                                     <!-- We can't use any name or id on g-recaptcha button -->
                                     <input type="submit" class='g-recaptcha btn btn-dark py-2 btn-block mt-2 font-weight-bold' value = 'Create Account' name='submit' data-sitekey="6Lf5G6EUAAAAACxEz6LkYthE5F00o-8-heFqtrYq" data-callback="onSubmit"> 
 
@@ -197,8 +200,8 @@
                                 </form>
 
                             </div>
-                            <a href="<?php echo $loginURL; ?>" class="fb connect mt-2 text-center w-100" id='fb-index-button'>Continue with Facebook</a>      
-
+                            <a class="fb connect mt-2 text-center w-100 text-white" id='fb-index-button'>Continue with Facebook</a>      
+                            <div id="terms-error-message" class='text-danger'></div>
                         </div>
                     </div>
             </div>
@@ -231,15 +234,21 @@
     </div>
     <?php } ?>
 
-        
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src='js/search.js'></script>
         <script>
-        $("#fb-index-button").on("click", function() {
-            $("#fb-index-button").addClass("btn disabled");
-        });
+            $("#fb-index-button").click(function(){
+                if($('#accept-terms').is(':checked') && $('#accept-privacy').is(':checked')) {
+                    $("#fb-index-button").addClass("btn disabled");
+                    var loginURL = "<?php echo $loginURL; ?>";
+                    window.location.assign(loginURL);
+                }
+                else {
+                    $("#terms-error-message").text("Please accept the terms & privacy policy.")
+                }
+            });
         </script>
     </body>
 </html>
