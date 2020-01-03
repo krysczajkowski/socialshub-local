@@ -2,7 +2,6 @@
 
 # Folders to ignore
 node_modules/*
-images/
 
 # OS or Editor folders
 ._*
