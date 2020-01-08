@@ -10,6 +10,11 @@
 
     include 'includes/nav.php';
 
+    // Sign Up or Log In popup for new users
+    if(!$functions->loggedIn()) {
+        include 'includes/signUp-popup.php';
+    }
+
 
     if(isset($_GET['username']) && !empty($_GET['username'])){
         $username    = $functions->checkInput($_GET['username']);
@@ -32,6 +37,7 @@
 
 ?>
 
+
     <div class="container">
         <div class="row d-flex mt-4">
             <!-- PROFILE IMAGE -->
@@ -44,9 +50,10 @@
                <!-- RIGHT COLUMN -->
                 <div class="col-md-8 col-sm-12">
                     <div class="pl-5">
-                        <h4 class='font-open-sans my-3' style='letter-spacing: 0.5px; font-size: 1.7rem; text-transform: capitalize;'><?php echo $profileData->screenName; ?></h4>
+                        <h4 class='font-open-sans mt-3' style='letter-spacing: 0.5px; font-size: 1.7rem; text-transform: capitalize;'><?php echo $profileData->screenName; ?></h4>
 
                         <div class="my-3">
+
 <pre>
 <?php 
     //BIO DISPLAY
@@ -72,9 +79,11 @@
 <?php
 
     if ($user->id === $profileId) {
-        echo "<a href='http://localhost/projekty/socialhub/settings.php' class='btn btn-light font-weight-bold py-1 px-3'>Edit Profile</a>";
+        echo "<a href='http://192.168.64.2/projekty/socialshub-local/settings.php' class='btn btn-light font-weight-bold py-1 px-3'>Edit Profile</a>";
     }
-
+    if ($user->id === $profileId) {
+        echo "<a href='http://192.168.64.2/projekty/socialshub-local/settings.php' class='ml-2 btn btn-light font-weight-bold py-1 px-3'>Copy your SocialsHub link</a>";
+    }
 
 ?>
 </pre>
