@@ -60,8 +60,8 @@ if($functions->loggedIn()) {
                     
                     <!-- If we are not logged in we display button to log in or sign up -->
                     <?php  } else { ?>
-                        <div class='ml-auto'></div>
-                        <button onclick="window.location='index.php';" style='letter-spacing: 1px;' class='btn btn-sm px-3 btn-primary font-weight-bold'>Log In or Sign Up</button>
+                      <a href='signIn.php' class='mx-1 px-3 link font-weight-bold' style='color: rgba(250, 250, 250, 0.94);'>Log In</a>
+                      <a href='signUp.php' class='mx-1 px-3 link font-weight-bold' style='color: rgba(250, 250, 250, 1);'>Sign Up!</a>
                     <?php } ?>
 
                 </div>

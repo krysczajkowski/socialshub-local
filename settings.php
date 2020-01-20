@@ -24,7 +24,7 @@ if(!$functions->loggedIn()) {
         // SETTINGS CODE    
     
         if(isset($_POST['email']) && isset($_POST['name']) && isset($_POST['textarea']) ) {
-            if(isset($_FILES['uploadProfile']) && isset($_FILES['uploadCover'])) {
+            if(isset($_FILES['uploadProfile'])) {
 
                 $name   = $_POST['name'];
                 $email  = $functions->checkInput($_POST['email']);
@@ -95,7 +95,7 @@ if(!$functions->loggedIn()) {
                     }
  
                     if($changes_success) {
-                        echo("<script>location.href = '".BASE_URL."$user->screenName'</script>");
+                        //echo("<script>location.replace('".$user->screenName."')</script>");
                     }
                 }
                 

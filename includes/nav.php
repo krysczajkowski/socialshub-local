@@ -1,12 +1,12 @@
 <?php 
-if($functions->loggedIn()) {
+// if($functions->loggedIn()) {
     
-    if(isset($_SESSION['user_id'])) {
-        $user = $functions->user_data($_SESSION['user_id']); 
-    } else {
-        $user = $functions->user_data($_COOKIE['user_id']);
-    }
-}
+//     if(isset($_SESSION['user_id'])) {
+//         $user = $functions->user_data($_SESSION['user_id']); 
+//     } else {
+//         $user = $functions->user_data($_COOKIE['user_id']);
+//     }
+// }
 
 ?>
     <nav class="navbar navbar-expand-md navbar-dark py-1 shadow bg-dark sticky-top" style='opacity: 0.95; background-color: #262626!important;'>
@@ -63,9 +63,8 @@ if($functions->loggedIn()) {
                     
                   <?php  } else { ?>
                   
-                  <a href='signIn.php' class='mx-1 px-3 link font-weight-bold' style='color: rgba(250, 250, 250, 0.94);'>Log In</a>
-                  <a href='signUp.php' class='mx-1 px-3 link font-weight-bold' style='color: rgba(250, 250, 250, 1);'>Sign Up!</a>
-                  <!--  data-toggle="modal" data-target="#exampleModal" -->
+                  <a href='signIn.php' class='mx-1 my-1 px-3 link font-weight-bold' style='color: rgba(250, 250, 250, 0.94);'>Log In</a>
+                  <a href='signUp.php' class='mx-1 my-1 px-3 link font-weight-bold' style='color: rgba(250, 250, 250, 1);'>Sign Up!</a>
                   <?php } ?>
 
                 </div>

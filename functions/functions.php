@@ -131,7 +131,7 @@ class Functions {
     //       USER LOGIN FUNCTION
     public function login_user($email, $password, $remember) {
         $hash = md5($password);
-        $stmt = $this->pdo->prepare("SELECT id FROM users WHERE email = :email AND password = :password AND fb_user = 0");
+        $stmt = $this->pdo->prepare("SELECT * FROM users WHERE email = :email AND password = :password AND fb_user = 0");
         $stmt->bindParam(":email", $email, PDO::PARAM_STR);
         $stmt->bindParam(":password", $hash, PDO::PARAM_STR);
         $stmt->execute();
@@ -297,32 +297,56 @@ class Functions {
     }
 
 
-    //      IMAGE FUNCTIONS
+//      IMAGE FUNCTIONS
     public function uploadImage($file, $id) {
-        $fileName = basename($file['name']);
-        $fileTmp  = $file['tmp_name'];
-        $fileSize = $file['size'];
-        $error    = $file['error'];
+        
+        // File information
+        $uploaded_name = basename($file['name']);
+        $uploaded_ext  = substr( $uploaded_name, strrpos( $uploaded_name, '.' ) + 1);
+        $uploaded_size = $file[ 'size' ];
+        $uploaded_type = $file[ 'type' ];
+        $uploaded_tmp  = $file[ 'tmp_name' ];
 
-        $fileExt = explode('.', $fileName);
-        $ext = strtolower(end($fileExt));
-        $allowed_ext = array('jpg', 'png', 'jpeg');
+        // Where are we going to be writing to?
+        $target_path   = 'images/';
 
-        if(in_array($ext, $allowed_ext)) {
-            if($error === 0) {
-                if($fileSize <= 5092751) { //Previous -> 209272152, 5092751 is 5mb
-                    $fileNewName = 'image'.$id.$fileName;
-                    $fileRoot = 'images/'.$fileNewName;
-                    move_uploaded_file($fileTmp, $fileRoot);
-                    return $fileRoot;
-                } else {
-                    $_SESSION['eSettings'] = 'The file size is too big.';
-                }
-            } else {
-                $_SESSION['eSettings'] = 'Sorry we have a problem with image.';
+        //$target_file   = basename( $uploaded_name, '.' . $uploaded_ext ) . '-';
+        $target_file   =  md5( uniqid() . $uploaded_name ) . '.' . $uploaded_ext;
+        $temp_file     = ( ( ini_get( 'upload_tmp_dir' ) == '' ) ? ( sys_get_temp_dir() ) : ( ini_get( 'upload_tmp_dir' ) ) );
+        $temp_file    .= DIRECTORY_SEPARATOR . md5( uniqid() . $uploaded_name ) . '.' . $uploaded_ext;
+
+        // Is it an image?
+        if( ( strtolower( $uploaded_ext ) == 'jpg' || strtolower( $uploaded_ext ) == 'jpeg' || strtolower( $uploaded_ext ) == 'png' ) &&          
+            ( $uploaded_size < 4192751 ) &&
+            ( $uploaded_type == 'image/jpeg' || $uploaded_type == 'image/png' ) &&
+            getimagesize( $uploaded_tmp ) ) {
+            // Strip any metadata, by re-encoding image (Note, using php-Imagick is recommended over php-GD)
+            if( $uploaded_type == 'image/jpeg' ) {
+                $img = imagecreatefromjpeg( $uploaded_tmp );
+                imagejpeg( $img, $temp_file, 100);
             }
-        } else {
-            $_SESSION['eSettings'] = 'The extension is not allowed.';
+            else {
+                $img = imagecreatefrompng( $uploaded_tmp );
+                imagepng( $img, $temp_file, 9);
+            }
+            imagedestroy( $img );
+
+            // Yes!
+            $_SESSION['eSettings'] = 'Your image was uploaded!';
+            //$newFileName = rename( $temp_file, ( getcwd() . DIRECTORY_SEPARATOR . $target_path . $target_file));
+
+            move_uploaded_file($target_path, $target_file);
+
+            $fileRoot = $target_path . $target_file;
+            return $fileRoot;
+
+            // Delete any temp files
+            if( file_exists( $temp_file ) )
+                unlink( $temp_file );
+        }
+        else {
+            // Invalid file
+            $_SESSION['eSettings'] = 'Your image was not uploaded. We can only accept JPEG or PNG images.';
         }
 
     }
@@ -549,6 +573,19 @@ class Functions {
     }
     
     
+    //       CUSTOM LINKS FUNCTIONS 
+
+    public function addCustomLink($account_id, $title, $link) {
+
+        $stmt = $this->pdo->prepare("INSERT INTO custom_links (id, account_id, title, link) VALUES (NULL, :account_id, :title, :link)");
+        $stmt->bindParam(':account_id', $account_id);
+        $stmt->bindParam(':title', $title);
+        $stmt->bindParam(':link', $link);
+        $stmt->execute();
+
+    }    
+
+
     //       RANKING FUNCTIONS 
 
     public function rankingGenerator() {

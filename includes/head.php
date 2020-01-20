@@ -1,4 +1,12 @@
-<?php include 'functions/init.php';
+<?php include 'functions/init.php'; $dupa = 'Siema';
+if($functions->loggedIn()) {
+    
+    if(isset($_SESSION['user_id'])) {
+        $user = $functions->user_data($_SESSION['user_id']); 
+    } else {
+        $user = $functions->user_data($_COOKIE['user_id']);
+    }
+}
 ?>
 <head>
     <meta charset="UTF-8">
@@ -8,8 +16,6 @@
     <meta name='keywords' content='social media, social link, social links, socialhub, social hub, socials hub, friends, celebrity, instagram, twitter, facebook, snapchat, twitch, tiktok, discord, mail, poland, website, bio, book for social media, book, book of social media, wikipedia, socialshub, wroclaw, profile visits, search, social media search, social link search, '>
     <link rel="icon" href="logo.png">
     <title>SocialsHub</title>
-    
-
     
     <!--  BOOTSTRAP include  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">

@@ -26,6 +26,7 @@ if(isset($_POST['loginEmail']) && !empty($_POST['loginEmail']) &&isset($_POST['l
     } else {
         $eLogin = "Your credentials are not correct.";
     }
+
 }
 ?>
    

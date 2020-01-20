@@ -94,41 +94,54 @@
 
    <div class="container mt-2">
             <div class="row"> 
-                <div class='col-12 mt-4 UserSocialLinksBox'>
+                <div class='col-12 UserSocialLinksBox'>
                     <div class="my-3">
-                        <div class="pl-5">
-                            <?php 
-                                $sm = $functions->showSocialMedia($profileId);
-                                //Displaying social links :D
+                        <div class="">
+                            <div class="row">
+                                <div class="col-md-4 pl-2 pl-5 order-md-1 order-2 mt-5">              
+                                    
+                                    <?php 
+                                        $sm = $functions->showSocialMedia($profileId);
+                                        //Displaying social links :D
 
-                                foreach ($sm as $socialMediaRow) {
-                                    if(!empty($socialMediaRow->smedia_name)) {
-                                        echo "<div class='row my-2 mb-3'>";
-                                        echo "<a class='link d-flex border-0' "; 
+                                        foreach ($sm as $socialMediaRow) {
+                                            if(!empty($socialMediaRow->smedia_name)) {
+                                                echo "<div class='row my-2'>";
+                                                echo "<a class='link d-flex border-0' "; 
 
-                                        if(!empty($socialMediaRow->smedia_link)) {
-                                            echo "href='$socialMediaRow->smedia_link'";
-                                        } else {
-                                            echo '';
+                                                if(!empty($socialMediaRow->smedia_link)) {
+                                                    echo "href='$socialMediaRow->smedia_link'";
+                                                } else {
+                                                    echo '';
+                                                }
+
+                                                echo " target='_blank' type='button' name='$socialMediaRow->smedia'>";
+                                                echo "<span class='socicon-$socialMediaRow->smedia mr-4' style='font-size: 1.35rem;'></span>";
+                                                echo "<p class='user-social-name' style='font-size: 1.15rem; color: #404040;' > $socialMediaRow->smedia_name </p>";
+                                                echo "</a>";
+                                                echo "</div>";
+                                            }
                                         }
+                                    
+                                    ?> 
+                                </div>
 
-                                        echo " target='_blank' type='button' name='$socialMediaRow->smedia'>";
-                                        echo "<span class='socicon-$socialMediaRow->smedia mr-4' style='font-size: 1.9rem;'></span>";
-                                        echo "<p class='user-social-name' style='font-size: 1.4rem; color: #404040;' > $socialMediaRow->smedia_name </p>";
-                                        echo "</a>";
-                                        echo "</div>";
-                                    }
-                                }
-                            
-                            ?> 
+                                <div class="col-md-8 order-md-2 order-1 mt-4">
+                                    <div class="row">
+                                        <div class="col-md-10 offset-md-1">
+                                            <a href="https://socialshub.net" class='btn btn-light btn-block font-weight-bold px-2 py-3 small-font mt-2' style='border-bottom: 1px solid #303030;'>"Down Like That" Ft. Rick Ross, Lil Baby, S-X</a>
+                                            <a href="https://socialshub.net" class='btn btn-light btn-block font-weight-bold px-2 py-3 small-font mt-2' style='border-bottom: 1px solid #303030;'>Team KSI Official Playlist</a>
+                                            <a href="https://socialshub.net" class='btn btn-light btn-block font-weight-bold px-2 py-3 small-font mt-2' style='border-bottom: 1px solid #303030;'>My New Album</a>
+
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>     
 
-                <!-- LEFT COLUMN -->
-                <div class="col-12"></div>
-
-                </div>
             </div>
        
 

@@ -22,6 +22,6 @@ if (isset($_SESSION['access_token'])) {
 $_SESSION = array();
 session_destroy();
 
-header('Location: signup.php');
+header('Location: signUp.php');
 
 exit();
