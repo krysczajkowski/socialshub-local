@@ -95,7 +95,7 @@ if(!$functions->loggedIn()) {
                     }
  
                     if($changes_success) {
-                        //echo("<script>location.replace('".$user->screenName."')</script>");
+                        echo("<script>location.replace('".$user->screenName."')</script>");
                     }
                 }
                 
