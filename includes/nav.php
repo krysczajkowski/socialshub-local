@@ -71,26 +71,3 @@
         </div>
     </nav>
 
-    <!-- Modal -->
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body mt-3">
-        <?php //include 'includes/login.php'; ?>
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <div class='row d-flex w-100'>
-            <div class="col-12">
-                <a href="<?php// echo $loginURL; ?>" class="fb connect mt-2 d-flex justify-content-center" style='width: 100%;' id='fb-index-button'>Continue with Facebook</a>
-            </div>
-            <div class="col-12">
-                <a href='index.php' class="btn btn-block btn-outline-secondary mt-2 font-weight-bold" style='border-radius: 2px!important;'>Sign Up</a>
-            </div>
-        </div>
-        
-        
-         <span class='text-muted'>Highly recommended!</span>    
-      </div>
-    </div>
-  </div>
-</div> -->

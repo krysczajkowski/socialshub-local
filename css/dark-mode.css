@@ -25,6 +25,10 @@
     color: #eee !important;
   }
 
+  [data-theme="dark"] .text-dark:hover {
+    color: #eee !important;
+  }
+
   [data-theme="dark"] .kurwa {
     background-color: #101010 !important;
   }
