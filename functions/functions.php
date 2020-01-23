@@ -9,9 +9,9 @@ class Functions {
 
     //       HELPER FUNCTIONS
     public function checkInput($var) {
-        $var = htmlspecialchars($var);
-        $var = trim($var);
-        $var = stripslashes($var);
+        $var = htmlspecialchars($var, ENT_QUOTES, 'UTF-8');
+        $var = trim($var, ENT_QUOTES, 'UTF-8');
+        $var = stripslashes($var, ENT_QUOTES, 'UTF-8');
         return $var;
     }
 
@@ -183,7 +183,7 @@ class Functions {
         $_SESSION['user_id'] = $user_id;
 
 
-        $socialmedia = ['youtube', 'instagram', 'tiktok', 'twitch', 'twitter', 'discord', 'snapchat','facebook', 'mail'];
+        $socialmedia = ['youtube', 'instagram', 'tiktok', 'twitch', 'twitter', 'snapchat','facebook'];
 
         for($i = 0; $i < count($socialmedia); $i++) {
 
