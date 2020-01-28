@@ -22,8 +22,8 @@
         $profileData = $functions->user_data($profileId);
 
         if(!$profileData) {
-            header('Location: index.php');
-            exit();
+           // header('Location: index.php');
+            //exit();
         } else {
             //$functions->addView($profileId);
             $functions->addVisitor($profileId);
