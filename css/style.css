@@ -27,6 +27,10 @@ p {
     font-size: 1.2rem;
 }
 
+.normal-font {
+    font-size: 1rem!important;
+}
+
 .grey-font {
     color: #555;
 }
