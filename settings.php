@@ -23,7 +23,7 @@ if(!$functions->loggedIn()) {
 
         //Links
         $links = [
-            'youtube' => 'https://youtube.com/',
+            'youtube' => 'https://youtube.com/user/',
             'facebook' => 'https://facebook.com/',
             'twitter' => 'https://twitter.com/', 
             'instagram' => 'https://instagram.com/',
@@ -90,21 +90,29 @@ if(!$functions->loggedIn()) {
                         
                         $smedia_name = $functions->checkInput($_POST[$smedia . '-name']);
                         
-                        //Session to hold in input wrong (over 30 chars) social name
+                        //Session to hold in input wrong (over 40 chars) social name
                         $_SESSION[$smedia . '-inputName'] = $smedia_name;
                         
-                        if((empty($smedia_name)) || (!empty($smedia_name) && strlen($smedia_name) < 30)) { 
 
+                        if((empty($smedia_name))) { 
 
-                            $smedia_link = $links[$smedia] . $smedia_name;
+                            $smedia_link = '';
 
                             $functions->updateSocialLinks($user->id, $smedia , $smedia_name, $smedia_link);
                             $functions->addNewSocialMedia($user->id);
                                                   
                                       
+                        } else if(!empty($smedia_name) && strlen($smedia_name) < 40) {
+
+                            $smedia_link = $links[$smedia] . $smedia_name;
+
+                            $functions->updateSocialLinks($user->id, $smedia , $smedia_name, $smedia_link);
+                            $functions->addNewSocialMedia($user->id);
+
+
                         } else {
                             $changes_success = 0;
-                            $_SESSION['eSettings'] = $smedia . ' name must be under 30 letters.';
+                            $_SESSION['eSettings'] = $smedia . ' name must be under 40 letters.';
                         } 
                                                 
                     }
@@ -248,7 +256,7 @@ if(!$functions->loggedIn()) {
         </span>
     </div>
     <div class='col-12 col-lg-7 '>
-        <input type='text' placeholder='Your ".$socialMediaRow->smedia." name' class='form-control' name='".$socialMediaRow->smedia."-name' id='".$socialMediaRow->smedia."-name' value='$name' >
+        <input type='text' placeholder='Your ".$socialMediaRow->smedia." username' class='form-control' name='".$socialMediaRow->smedia."-name' id='".$socialMediaRow->smedia."-name' value='$name' >
     </div>
 </div>
 </div>";
