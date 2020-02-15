@@ -111,9 +111,9 @@
         <?php }  ?>
        
         <div class="container">
-            <div class="row d-flex justify-content-center mt-5">
-                <p class='text-center h2 px-2'>Use it for anything. <br class='d-md-none'> Link to everything.</p>
-            </div>  
+            <div class="d-flex justify-content-center">
+                <img src="socialshub-images/signUp-link.png" alt="Sign Up 'Your link' image by Ksawery Sokalski" class='img-fluid img-responsive mt-4 signUp-link'> 
+            </div>
 
             <div class="row">
                 <div class="col-md-5 medium-font mt-4 mb-4 order-md-1 order-2">
@@ -129,13 +129,13 @@
 
                 <!-- RIGHT PANEL -->
 
-                    <div class="col-md-6 mt-5 order-md-2 order-1">
+                    <div class="col-md-6 order-md-2 order-1">
 
-                        <div class="col-md-10 mt-3 mb-4">
+                        <div class="col-md-10 signUp-container mb-4">
                             <div class="pt-2 ">
                                 <div class="font-open-sans">
                                     <p class='font-weight-bold my-0' style='font-size: 1.1rem;'>One link driving your followers to all your content.</p>
-                                    <p class='text-muted font-weight-bold my-1' style='font-size: 0.9rem;'>Tool for artists, bloggers or influencers.</p>
+                                    <p class='text-muted font-weight-bold my-1' style='font-size: 0.9rem;'>Tool for everyone.</p>
                                 </div>
                                 <form action="signUp.php" method="post" id='i-recaptcha'>
                                     <input type="text" value='<?php if(isset($reg_name)) {echo $reg_name;} ?>' class="form-control" placeholder='Name' name='nameRegister'>
@@ -196,6 +196,13 @@
                 $("#terms-error-message").text("Please accept the terms & privacy policy.")
             }
         });
+
+        // Disable Register Button after click
+        $("#signUp-submit").click(function(){
+            if($('#accept-terms').is(':checked') && $('#accept-privacy').is(':checked')) {
+                $("#signUp-submit").addClass("btn disabled");
+            }
+        });     
     </script>
     </body>
 </html>

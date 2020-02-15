@@ -62,6 +62,14 @@ img.signUp-iphone-gif{
   margin-left: auto;
 }
 
+img.signUp-link {
+    width: 50%!important;
+}
+
+.signUp-container {
+    margin-top: 3.5rem;
+}
+
 /* Facebook button */
 
 a.fb {
@@ -421,7 +429,15 @@ label:focus,
     img.signUp-iphone-gif {
         margin-left: auto;
         margin-right: auto;
-    }   
+    } 
+
+    img.signUp-link {
+        width: 90%!important;
+    }  
+
+    .signUp-container {
+        margin-top: 2rem;
+    }
 }
 
 @media (max-width: 1000px) {
