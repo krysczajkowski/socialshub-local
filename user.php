@@ -91,6 +91,7 @@
         </div>
     </div>
 
+
    <div class="container mt-2">
             <div class="row"> 
                 <div class='col-12 UserSocialLinksBox'>
@@ -218,6 +219,7 @@
     <!-- This website is using cookies information here -->
     <?php include 'includes/cookie-info.php'; ?>
 
+    <div id="a" class='bg-danger' onclick="copyDivToClipboard()"> Click to copy </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -225,5 +227,15 @@
     <script src='js/search.js'></script>
     <?php include 'js/script.php' ?>
     <script src='js/accept-cookies.js'></script>
+    <script>
+        function copyDivToClipboard() {
+            var range = document.createRange();
+            range.selectNode(document.getElementById("a"));
+            window.getSelection().removeAllRanges(); // clear current selection
+            window.getSelection().addRange(range); // to select text
+            document.execCommand("copy");
+            window.getSelection().removeAllRanges();// to deselect
+        }
+    </script>
 </body>
 </html>
