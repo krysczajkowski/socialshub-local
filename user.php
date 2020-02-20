@@ -103,9 +103,9 @@ if ($user->id === $profileId) {
                                 <div class="col-10 offset-1 mt-2">
                                     <div class="row">
                                         <div class="col-md-10 offset-md-1">
-                                            <a href="https://socialshub.net" class='btn btn-dark btn-block px-2 py-2 font-weight-bold small-font mt-2' style='background-color: #111; opacity: 0.95;'>"Down Like That" Ft. Rick Ross, Lil Baby, S-X</a>
-                                            <a href="https://socialshub.net" class='btn btn-dark btn-block px-2 py-2 font-weight-bold small-font mt-2' style='background-color: #111; opacity: 0.95;'>Team KSI Official Playlist</a>
-                                            <a href="https://socialshub.net" class='btn btn-dark btn-block px-2 py-2 font-weight-bold small-font mt-2' style='background-color: #111; opacity: 0.95;'>My New Album!</a>
+                                            <a href="https://socialshub.net" class='btn btn-dark btn-block px-2 py-2 font-weight-bold small-font mt-2 custom-link'>"Down Like That" Ft. Rick Ross, Lil Baby, S-X</a>
+                                            <a href="https://socialshub.net" class='btn btn-dark btn-block px-2 py-2 font-weight-bold small-font mt-2 custom-link'>Team KSI Official Playlist</a>
+                                            <a href="https://socialshub.net" class='btn btn-dark btn-block px-2 py-2 font-weight-bold small-font mt-2 custom-link'>My New Album!</a>
 
                                         </div>
                                     </div>
@@ -130,7 +130,7 @@ if ($user->id === $profileId) {
                                                     }
 
                                                     echo " target='_blank' type='button' name='$socialMediaRow->smedia'>";
-                                                    echo "<span class='socicon-$socialMediaRow->smedia mx-auto' style='font-size: 1.7rem;'></span>";
+                                                    echo "<span class='socicon-$socialMediaRow->smedia mx-auto smedia-icon'></span>";
                                                     echo "</a>";
                                                 }
                                             }

@@ -15,6 +15,32 @@ p {
     word-break: break-all;
 }
 
+#a {
+	transition: transform .1s;
+}
+
+#a:active {
+	transform: rotate(1deg);
+}
+
+.custom-link {
+	background-color: #111;
+	opacity: 0.95;
+}
+
+.custom-link:hover {
+	background-color: #202020;
+}
+
+.smedia-icon {
+	font-size: 1.7rem;
+	transition: transform .1s;
+}
+
+.smedia-icon:hover {
+	transform: rotate(20deg);
+}
+
 .lg-font {
     font-size: 1.7rem;
 }
