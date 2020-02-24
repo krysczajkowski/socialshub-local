@@ -15,7 +15,7 @@ if($functions->loggedIn()) {
     <meta name='description' content='SocialsHub - website with social medias of your friends, celebrities and other people.'>
     <meta name='keywords' content='social media, social link, social links, socialhub, social hub, socials hub, friends, celebrity, instagram, twitter, facebook, snapchat, twitch, tiktok, discord, mail, poland, website, bio, book for social media, book, book of social media, wikipedia, socialshub, wroclaw, profile visits, search, social media search, social link search, '>
     <link rel="icon" href="logo.png">
-    <title>SocialsHub</title>
+    <title>SocialsHub. One link to All your content</title>
     
     <!--  BOOTSTRAP include  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
