@@ -34,7 +34,8 @@ if(!$functions->loggedIn()) {
             'linkedin' => 'https://linkedin.com/in/',
             'spotify' => 'https://open.spotify.com/artist/',
             'github' => 'https://github.com/',
-            'pinterest' => 'https://pinterest.com/'
+            'pinterest' => 'https://pinterest.com/',
+            'reddit' => 'https://www.reddit.com/user/'
 
         ];
 
@@ -301,5 +302,10 @@ if(!$functions->loggedIn()) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <?php include 'js/script.php' ?>
     <script src='js/search.js'></script>
+    <script>
+        //Make it look active in nav
+        $('#nav-settings').css({"border-bottom": "2px solid #fff"});
+        $('#nav-settings').css({"font-weight": "700"});
+    </script>
 </body>
 </html>

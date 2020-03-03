@@ -9,11 +9,7 @@
     <?php
 
     // Different navs for logged in or not logged in users
-    if(!$functions->loggedIn()) {
-        include 'includes/user-nav.php';
-    } else {
-        include 'includes/nav.php';
-    }
+    include 'includes/user-nav.php';
 
 
     if(isset($_GET['username']) && !empty($_GET['username'])){
@@ -78,16 +74,7 @@ if ($user->id === $profileId) {
     </div>
 
 <?php } ?>
-<br>
-<div style='font-size: 1.2rem;'>
-<?php
 
-    if ($user->id === $profileId) {
-        echo "<a href='http://192.168.64.2/projekty/socialshub-local/settings.php' class='btn btn-light font-weight-bold py-1 px-3'>Edit Profile</a>";
-    }
-
-?>
-</div>
 
                 </div>
             </div>
@@ -103,9 +90,9 @@ if ($user->id === $profileId) {
                                 <div class="col-10 offset-1 mt-2">
                                     <div class="row">
                                         <div class="col-md-10 offset-md-1">
-                                            <a href="https://socialshub.net" class='btn btn-dark btn-block px-2 py-2 font-weight-bold small-font mt-2 custom-link'>"Down Like That" Ft. Rick Ross, Lil Baby, S-X</a>
-                                            <a href="https://socialshub.net" class='btn btn-dark btn-block px-2 py-2 font-weight-bold small-font mt-2 custom-link'>Team KSI Official Playlist</a>
-                                            <a href="https://socialshub.net" class='btn btn-dark btn-block px-2 py-2 font-weight-bold small-font mt-2 custom-link'>My New Album!</a>
+                                            <a href="https://socialshub.net" class='btn-block px-2 py-2 small-font mt-2 gradient-button gradient-button-1'>"Down Like That" Ft. Rick Ross, Lil Baby, S-X</a>
+                                            <a href="https://socialshub.net" class='btn btn-block px-2 py-2 font-weight-bold small-font mt-2 custom-link gradient-button gradient-button-1'>Team KSI Official Playlist</a>
+                                            <a href="https://socialshub.net" class='btn btn-block px-2 py-2 font-weight-bold small-font mt-2 custom-link gradient-button gradient-button-1'>My New Album!</a>
 
                                         </div>
                                     </div>
@@ -238,6 +225,10 @@ if ($user->id === $profileId) {
             document.execCommand("copy");
             window.getSelection().removeAllRanges();// to deselect
         }
+
+        //Make it look active in nav
+        $('#nav-profile').css({"border-bottom": "2px solid #fff"});
+        $('#nav-profile').css({"font-weight": "700"});
     </script>
 </body>
 </html>

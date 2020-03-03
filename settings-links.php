@@ -192,7 +192,9 @@
         $('.port-item').click(function(){
             $('.collapse').collapse('hide')
         })
-
+        //Make it look active in nav
+        $('#nav-settings-links').css({"border-bottom": "2px solid #fff"});
+        $('#nav-settings-links').css({"font-weight": "700"});
     </script>
 </body>
 </html>
