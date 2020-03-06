@@ -90,7 +90,7 @@ if ($user->id === $profileId) {
                                 <div class="col-10 offset-1 mt-2">
                                     <div class="row">
                                         <div class="col-md-10 offset-md-1">
-                                            <a href="https://socialshub.net" class='btn-block px-2 py-2 small-font mt-2 gradient-button gradient-button-1'>"Down Like That" Ft. Rick Ross, Lil Baby, S-X</a>
+                                            <a href="https://socialshub.net" class='btn-block px-2 py-2 small-font mt-2 gradient-button gradient-button-1 custom-link-click' data-customlink='1' target='blank'>"Down Like That" Ft. Rick Ross, Lil Baby, S-X</a>
                                             <a href="https://socialshub.net" class='btn btn-block px-2 py-2 font-weight-bold small-font mt-2 custom-link gradient-button gradient-button-1'>Team KSI Official Playlist</a>
                                             <a href="https://socialshub.net" class='btn btn-block px-2 py-2 font-weight-bold small-font mt-2 custom-link gradient-button gradient-button-1'>My New Album!</a>
 
@@ -108,7 +108,7 @@ if ($user->id === $profileId) {
 
                                             foreach ($sm as $socialMediaRow) {
                                                 if(!empty($socialMediaRow->smedia_name)) {
-                                                    echo "<a class='link d-flex mt-1 mb-2 col-3 col-md-1' "; 
+                                                    echo "<a class='link social-link-click d-flex mt-1 mb-2 col-3 col-md-1' data-sociallink='$socialMediaRow->id'"; 
 
                                                     if(!empty($socialMediaRow->smedia_link)) {
                                                         echo "href='$socialMediaRow->smedia_link'";
@@ -214,6 +214,7 @@ if ($user->id === $profileId) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src='js/search.js'></script>
+    <script src='js/click.js'></script>
     <?php include 'js/script.php' ?>
     <script src='js/accept-cookies.js'></script>
     <script>

@@ -499,17 +499,6 @@ class Functions {
 
     //       SOCIAL MEDIA FUNCTIONS 
 
-    public function addSocialMediaClick($account_id, $smedia) {
-        $clicker_ip = $_SERVER['REMOTE_ADDR'];
-
-        $stmt = $this->pdo->prepare("INSERT INTO social_clicks (id, account_id, smedia, clicker_ip) VALUES (NULL, :account_id, :smedia, :visitor_ip)");
-        $stmt->bindParam(':account_id', $account_id);
-        $stmt->bindParam(':smedia', $smedia);
-        $stmt->bindParam(':clicker_ip', $clicker_ip);
-        $stmt->execute();
-
-    }
-
     public function updateSocialLinks ($account_id, $socialmedia, $name, $link) {
         $stmt = $this->pdo->prepare("UPDATE social_links SET smedia_name = :smedia_name , smedia_link = :smedia_link WHERE account_id = :account_id AND smedia = :smedia");
         
@@ -576,6 +565,12 @@ class Functions {
         return $stmt->fetch(PDO::FETCH_OBJ)->weekVisits;
     }
     
+
+    public function addClick($link_id, $table) {
+        $stmt = $this->pdo->prepare("INSERT INTO $table (id, clickOn) VALUES (NULL, :link_id)");
+        $stmt->bindParam(':link_id', $link_id);
+        $stmt->execute();
+    }
     
     //       CUSTOM LINKS FUNCTIONS 
 
