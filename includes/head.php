@@ -14,7 +14,7 @@ if($functions->loggedIn()) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name='description' content='SocialsHub - website with social medias of your friends, celebrities and other people.'>
     <meta name='keywords' content='social media, social link, social links, socialhub, social hub, socials hub, friends, celebrity, instagram, twitter, facebook, snapchat, twitch, tiktok, discord, mail, poland, website, bio, book for social media, book, book of social media, wikipedia, socialshub, wroclaw, profile visits, search, social media search, social link search, '>
-    <link rel="icon" href="logo.png">
+    <link rel="icon" href="logo-little.png">
     <title>SocialsHub. One link to All your content</title>
     
     <!-- User's custom links font -->
