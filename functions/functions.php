@@ -572,6 +572,16 @@ class Functions {
         $stmt->execute();
     }
     
+    public function showClickCounter($account_id, $link_id) {
+        $stmt = $this->pdo->prepare("SELECT * FROM social_links, social_links_clicks WHERE social_links.account_id = :account_id and social_links.id = :link_id and social_links.id = social_links_clicks.clickOn");
+        $stmt->bindParam(':account_id', $account_id);
+        $stmt->bindParam('link_id', $link_id);
+        $stmt->execute();
+
+        return $stmt->rowCount();
+
+    }
+
     //       CUSTOM LINKS FUNCTIONS 
 
     public function addCustomLink($account_id, $title, $link) {

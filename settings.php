@@ -230,8 +230,8 @@ if(!$functions->loggedIn()) {
 
                         <!-- Social Links Title -->
                         <div class="row pt-4">
-                            <div class="col-12 pr-0 mr-0 col-md-3 py-2 d-flex justify-content-end justify-text-md-start">
-                                <strong class='medium-font '>Social Links</strong>
+                            <div class="col-12 pr-0 mr-0 col-lg-3 py-2 d-flex justify-content-end justify-text-md-start">
+                                <strong class='medium-font'>Social Links</strong>
                             </div>
                             <div class="col-xs-12 col-md-9 d-flex align-items-center"></div>  
                         </div>
@@ -247,28 +247,42 @@ if(!$functions->loggedIn()) {
                                         
                                         $smedia = $socialMediaRow->smedia;
 
+                                        $clicks = $functions->showClickCounter($user->id, $socialMediaRow->id);
+                                        
+                                        if($clicks == 1) {
+                                            $clickCounter = "<p class='container mt-0 mb-1 py-0'>".$socialMediaRow->smedia." has been clicked 1 time</p>";
+                                        } else {
+                                            $clickCounter = "<p class='container mt-0 mb-1 py-0'>".$socialMediaRow->smedia." has been clicked <span class='font-weight-bold'>". $clicks ."</span> times</p>";
+                                        }
+
+
                                         echo "
-<div class='col-12 col-md-10'>
-<div class='row mb-2'>
-    <div class='col-12 col-lg-5'>
-        <span id='' class='input-group-text settings-social-name'>
+<div class='input-group row col-12 col-md-10 no-gutters mb-1' id='accordion-".$socialMediaRow->smedia."'>
+    <div class='input-group-prepend col-12 col-lg-5 mx-0'>
+        <span id='' class='input-group-text settings-social-name w-100'>
             <span class='medium-font settings-social-text p-0 socicon-$socialMediaRow->smedia'></span>
             $links[$smedia]
         </span>
     </div>
-    <div class='col-12 col-lg-7 '>
-        <input type='text' placeholder='Your ".$socialMediaRow->smedia." username' class='form-control' name='".$socialMediaRow->smedia."-name' id='".$socialMediaRow->smedia."-name' value='$name' >
+
+    <div class='col-10 col-lg-6 mx-0'>
+        <input type='text' placeholder='Your ".$socialMediaRow->smedia." username' class='form-control w-100' name='".$socialMediaRow->smedia."-name' id='".$socialMediaRow->smedia."-name' value='$name' >
     </div>
-</div>
+    <div class='input-group-append col-2 col-lg-1 mx-0'>
+        <a id='' class='input-group-text w-100 px-auto link' href='#collapse-".$socialMediaRow->smedia."' data-parent='#accordion-".$socialMediaRow->smedia."' data-toggle='collapse' aria-expanded='true'>
+            <i class='fas fa-chart-pie mx-auto'></i>
+        </a>
+    </div>
+
+    <div class='collapse mt-2 mb-2' id='collapse-".$socialMediaRow->smedia."'>".$clickCounter."</div>
 </div>";
+
                                         
                                         unset($_SESSION[$socialMediaRow->smedia . '-inputName']);
                                     } ?>
                                 </div>
                             </div>
                         </div>
-
-
 
                         <!-- SUBMIT -->
                         <div class="row pt-3">

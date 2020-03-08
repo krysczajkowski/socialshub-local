@@ -132,7 +132,6 @@ if ($user->id === $profileId) {
                 </div>     
 
             </div>
-       
 
         <!-- CREATE A POST -->
 
