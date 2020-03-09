@@ -1,4 +1,4 @@
-# SocialsHub.net - local files
+# https://socialshub.net - local files
 SocialsHub is a website you can store all your social media names and links.
 
 ## Getting Started
