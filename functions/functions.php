@@ -382,7 +382,7 @@ class Functions {
 
     //      SEARCH FUNCTIONS
     public function search($search) {
-        $stmt = $this->pdo->prepare("SELECT id, screenName, profileImage, profileCover FROM users WHERE email LIKE ? OR screenName LIKE ? LIMIT 6");
+        $stmt = $this->pdo->prepare("SELECT id, screenName, profileImage, profileCover, bio FROM users WHERE email LIKE ? OR screenName LIKE ? LIMIT 6");
         $stmt->bindValue(1, $search."%", PDO::PARAM_STR);
         $stmt->bindValue(2, $search."%", PDO::PARAM_STR);
         $stmt->execute();
@@ -540,7 +540,7 @@ class Functions {
     }
 
     public function showNotEmptySocialMedia ($account_id) {
-        $stmt = $this->pdo->prepare("SELECT * FROM social_links WHERE account_id = :account_id AND smedia_link != ''");
+        $stmt = $this->pdo->prepare("SELECT * FROM social_links WHERE account_id = :account_id AND smedia_link != '' LIMIT 3");
         $stmt->bindParam(':account_id', $account_id);
         $stmt->execute();
 
@@ -582,17 +582,7 @@ class Functions {
 
     }
 
-    //       CUSTOM LINKS FUNCTIONS 
-
-    public function addCustomLink($account_id, $title, $link) {
-
-        $stmt = $this->pdo->prepare("INSERT INTO custom_links (id, account_id, title, link) VALUES (NULL, :account_id, :title, :link)");
-        $stmt->bindParam(':account_id', $account_id);
-        $stmt->bindParam(':title', $title);
-        $stmt->bindParam(':link', $link);
-        $stmt->execute();
-
-    }    
+    //       CUSTOM LINKS FUNCTIONS   
 
 
     //       RANKING FUNCTIONS 
