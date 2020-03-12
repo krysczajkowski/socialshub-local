@@ -19,7 +19,6 @@
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <!-- reCaptcha invisible code  -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
        
 <script>
@@ -83,7 +82,7 @@
             <div class='alert bg-danger text-white alert-dismissable mt-0 mb-4 p-2'>
                 <div class="container">
                     <button type="button" class='close' data-dismiss='alert'>
-                        <span>&times;</span>
+                        <span>x</span>
                     </button>
                    <span class='text-white' style='color: #c0c0c0;'>Your account has been deleted. <b>We hope you come back soon.</b></span>
                 </div>
@@ -123,7 +122,6 @@
             </div>
         </div>
 
-    <!-- This website is using cookies information here -->
     <?php include 'includes/cookie-info.php'; ?>
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

@@ -1,10 +1,10 @@
-<?php include 'functions/init.php';
+<?php include "functions/init.php";
 if($functions->loggedIn()) {
-    
-    if(isset($_SESSION['user_id'])) {
-        $user = $functions->user_data($_SESSION['user_id']); 
+
+    if(isset($_SESSION["user_id"])) {
+        $user = $functions->user_data($_SESSION["user_id"]);
     } else {
-        $user = $functions->user_data($_COOKIE['user_id']);
+        $user = $functions->user_data($_COOKIE["user_id"]);
     }
 }
 ?>
@@ -12,25 +12,16 @@ if($functions->loggedIn()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name='description' content='SocialsHub - website with social medias of your friends, celebrities and other people.'>
-    <meta name='keywords' content='social media, social link, social links, socialhub, social hub, socials hub, friends, celebrity, instagram, twitter, facebook, snapchat, twitch, tiktok, discord, mail, poland, website, bio, book for social media, book, book of social media, wikipedia, socialshub, wroclaw, profile visits, search, social media search, social link search, '>
+    <meta name="description" content="SocialsHub - website with social medias of your friends, celebrities and other people.">
+    <meta name="keywords" content="social media, social link, social links, friends, link, links, socialshub">
     <link rel="icon" href="logo-little.png">
     <title>SocialsHub. One link to All your content</title>
-    
-    <!-- User's custom links font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:900&display=swap" rel="stylesheet">
-    <!--  BOOTSTRAP include  -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!--  CSS include  -->
+    <!--  BOOTSTRAP include  (TO DELETE) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dark-mode.css">
-    <!--  Lato font  -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;subset=latin-ext" rel="stylesheet">
-    <!--  Font awsome  -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <!-- Font Open Sans -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700&display=swap" rel="stylesheet">
-    <!-- Social Media Icons -->
     <link rel="stylesheet" href="https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?u8vidh">
 </head>
 

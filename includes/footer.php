@@ -5,7 +5,11 @@
         <div class="col-1 my-2"><a href='terms.php' class='font-weight-bold text-muted link'>Terms</a></div>
         <div class="col-3 my-2 offset-6">
             <div class="d-flex">
-                <span class="ml-auto font-weight-bold text-muted">&copy; 2020 SocialsHub</span>
+			<script type="text/javascript>
+			var date = document.querySelector(".date");
+            date.innerHTML = (new Date().getFullYear());
+             </script>
+             <span class="ml-auto font-weight-bold text-muted">(c) <noscript>2020</noscript><span class="date"></span> SocialsHub</span>
             </div>
         </div>
     </div>

@@ -73,8 +73,8 @@
             
     
 
-// Dodaj tego javascripta ale przed praca na obrazkach sprawdź czy uploadProfile itp w ogole istnieje, jeżeli tak to zacznij prace, jak ją skończysz to obowiązkowo po próbuj hackować strone 
-
+// Dodaj tego javascripta ale przed praca na obrazkach sprawdź czy uploadProfile itp w ogole istnieje, jeżeli tak to zacznij prace, jak ją skończysz to obowiązkowo po próbuj hackować strone. 
+// Add this javascript but before working on images check if uploadProfile etc. exists at all, if it does, start work when you finish it, it's mandatory after trying to hack the page.
     
 ?>
  

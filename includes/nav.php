@@ -22,12 +22,10 @@
         </a>  
     <?php } ?>
 
-    <!-- Logo Part -->
     <a class="col-4 d-flex" href="index.php">
         <img src="logo.png" alt="" style='width: auto!important; height: 35px;' class='mx-auto'>
     </a>
 
-    <!-- Sign In or Settings part -->
     <?php if(!$functions->loggedIn()) { ?>
         <a class="col-4 d-flex link" href='signUp.php'>
             <span class='link font-weight-bold mx-auto text-dark'>Sign Up!</span>
