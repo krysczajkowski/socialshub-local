@@ -9,7 +9,7 @@
 // }
 
 ?>
-<nav class="navbar navbar-expand-md navbar-light px-0 mx-0 py-1 shadow-sm sticky-top row" style='opacity: 0.95; background-color: #fff!important;'>
+<nav class="navbar navbar-expand-md navbar-light px-0 mx-0 py-1 shadow sticky-top row" style='opacity: 0.95; background-color: #fff!important;'>
 
     <!-- Log In or Logout part -->
     <?php if(!$functions->loggedIn()) { ?>
