@@ -18,6 +18,8 @@
 ?>
 
 
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <!-- reCaptcha invisible code  -->
@@ -28,7 +30,6 @@
         document.getElementById("i-recaptcha").submit();
     }
 </script>
-
     <?php include 'includes/head.php'; 
     
     if($functions->loggedIn()) {
@@ -95,8 +96,9 @@
 
     
     ?>
-    <body>  
-    <?php include 'includes/nav.php'; ?>
+  <body>
+
+ <?php include 'includes/nav.php'; ?>
        
         <!-- MESSAGE IF USER DELETED ACCOUNT -->
         <?php if(isset($_COOKIE['account_deleted'])) { ?>
@@ -109,25 +111,69 @@
                 </div>
             </div>
         <?php }  ?>
+
+<section class="block block-hero-2" 
+style="background-image: url('/images/hero-2-bg.png')"
+>
+  <div class="container">
+    <div class="columns">
+      <div class="column text">
+        <h1><span class="light">SocialsHub <br></span></h1>
+        <p>SocialsHub - website with social medias of your friends, celebrities and other people.</p>
        
-        <div class="container">
-            <div class="d-flex justify-content-center">
-                <img src="socialshub-images/signUp-link.png" alt="Sign Up 'Your link' image by Ksawery Sokalski" class='img-fluid img-responsive mt-4 signUp-link'> 
-            </div>
+        
+      </div>
+      <div class="column media">
+        <img src="gifs/signUp-iphone-gif.gif" alt="Product Shot">
+      </div>
+    </div>
+  </div>
+</section>
 
-            <div class="row">
-                <div class="col-md-5 medium-font mt-4 mb-4 order-md-1 order-2">
 
-                    <!-- LEFT LIST -->
-                    <div class="row mt-2 ml-1">
-                        <img src="gifs/signUp-iphone-gif.gif" class='signUp-iphone-gif'/>
-                    </div>
+<section id="features" class="block block-feature-2">
+  <div class="container">
+    <div class="columns">
+      <div class="column media">
+          <img src="gifs/signUp-iphone-gif.gif" alt="uBuild Blocks Mock-Up">
+      </div>
+      <div class="column text">
+          <h2><span class="light"><strong>Swap &amp; Switch<span class="light">&nbsp;</span></strong><span class="light">the Blocks to create sites quickly</span></span></h2>
+          <p>Quickly assemble and create custom sites with 16 design blocks for seven different sections.</p>
+      </div>  
+    </div>
+  </div>
+</section>
 
-                </div>
 
-                
 
-                <!-- RIGHT PANEL -->
+
+<section class="block block-feature-1">
+  <div class="container">
+    <div class="columns">
+      <div class="column text">
+        <h2><span class="light"><strong>Customize Blocks</strong><span class="light">&nbsp;to make quick edits throughout your new site</span></span></h2>
+        <p>Each block comes with custom Front Matter that can easily be edited in Forestry's UI.</p>
+      </div>
+      <div class="column media">
+        <img src="gifs/signUp-iphone-gif.gif" alt="Customize Blocks">
+      </div>
+    </div>      
+  </div>
+</section>
+
+
+<section class="block block-one-column-1">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <h3>ALL YOUR CONTENT IN ONE LINK</h3>
+        <p>FREE tool for instagram bio, twitter posts, tiktok videos etc.</p>
+      </div>        
+    </div>
+  </div>
+</section>
+
 
                     <div class="col-md-6 order-md-2 order-1">
 
