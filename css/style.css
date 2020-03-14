@@ -768,6 +768,10 @@ input.inverted::placeholder {
 	}
 }
 
+html {
+scroll-behavior: smooth;
+}
+
 .block-media-1 img {
 	max-width: 100%
 }

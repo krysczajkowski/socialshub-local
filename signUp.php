@@ -120,7 +120,7 @@ style="background-image: url('/images/hero-2-bg.png')"
       <div class="column text">
         <h1><span class="light">SocialsHub <br></span></h1>
         <p>SocialsHub - website with social medias of your friends, celebrities and other people.</p>
-       
+<a href="#singup" class="btn btn-dark py-2 btn-block mt-2 font-weight-bold">Sing Up now!</a>
         
       </div>
       <div class="column media">
@@ -130,12 +130,13 @@ style="background-image: url('/images/hero-2-bg.png')"
   </div>
 </section>
 
-                    <div class="col-md-6 order-md-2 order-1">
+<center>
+                    <div class="col-md-6 order-md-2 order-1" id="singup">
 
                         <div class="col-md-10 signUp-container mb-4">
                             <div class="pt-2 ">
                                 <div class="font-open-sans">
-                                    <p class='font-weight-bold my-0' style='font-size: 1.1rem;'>One link driving your followers to all your content.</p>
+                                    <p class='font-weight-bold my-0' style='font-size: 1.1rem; word-break: keep-all;'>One link driving your followers to all your content.</p>
                                     <p class='text-muted font-weight-bold my-1' style='font-size: 0.9rem;'>Tool for everyone.</p>
                                 </div>
                                 
@@ -170,7 +171,7 @@ style="background-image: url('/images/hero-2-bg.png')"
                     </div>
             </div>
         </div>
-		
+		</center>
 <section id="features" class="block block-feature-2">
   <div class="container">
     <div class="columns">
