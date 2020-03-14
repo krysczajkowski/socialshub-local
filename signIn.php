@@ -74,7 +74,7 @@
     }
 
     ?>
-    <body>  
+    <body ondragstart="return false" ondrag="return false">  
     <?php include 'includes/nav.php'; ?>
 
         <!-- MESSAGE IF USER DELETED ACCOUNT -->

@@ -41,7 +41,7 @@ if(isset($_POST['oldPassword']) && isset($_POST['newPassword']) && isset($_POST[
     
 ?>
     
-<body>
+<body ondragstart="return false" ondrag="return false">
     <?php include 'includes/nav.php'; 
         //We check is user active and if he is not we change his location to welcome.php
         $functions->isUserActive($user->active);

@@ -33,7 +33,7 @@
         header('Location: recover.php');
     }
     ?>
-    <body>
+    <body ondragstart="return false" ondrag="return false">
        
        <div class="container mt-5">
            <div class="row mt-5">

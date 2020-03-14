@@ -5,7 +5,7 @@
 
 ?>
 
-<body>
+<body ondragstart="return false" ondrag="return false">
     <?php
 
     // Different navs for logged in or not logged in users

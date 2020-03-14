@@ -10,7 +10,7 @@ if(!$functions->loggedIn()) {
 
 ?>
 
-<body>
+<body ondragstart="return false" ondrag="return false">
 <?php include 'includes/nav.php';  ?>
 
 <div class="container">

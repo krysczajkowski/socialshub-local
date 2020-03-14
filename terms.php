@@ -3,7 +3,7 @@
 
 <?php include 'includes/head.php'; ?>
  
-<body>
+<body ondragstart="return false" ondrag="return false">
    <?php include 'includes/nav.php'; ?>
     <div class="bg-white my-5 border rounded container">
         <div class="row">

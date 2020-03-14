@@ -3,7 +3,7 @@
 
 <?php include 'includes/head.php'; ?>
  
-<body> 
+<body ondragstart="return false" ondrag="return false">
     <?php include 'includes/nav.php'; 
 
     // Sign Up or Log In popup for new users
