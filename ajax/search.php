@@ -10,7 +10,6 @@ if(isset($_POST['search']) && !empty($_POST['search'])) {
     if(!empty($result)) {
 
     $i=0;   
-    //Robimy obiekt każdego wyszukanego usera w html
     foreach($result as $user){
     $userSM = $functions->showNotEmptySocialMedia($user->id); 
     $i++;
