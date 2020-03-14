@@ -124,56 +124,11 @@ style="background-image: url('/images/hero-2-bg.png')"
         
       </div>
       <div class="column media">
-        <img src="gifs/signUp-iphone-gif.gif" alt="Product Shot">
+<img style="width: 50%; height: 50%;" src="gifs/signUp-iphone-gif.gif" alt="Product Shot">
       </div>
     </div>
   </div>
 </section>
-
-
-<section id="features" class="block block-feature-2">
-  <div class="container">
-    <div class="columns">
-      <div class="column media">
-          <img src="gifs/signUp-iphone-gif.gif" alt="uBuild Blocks Mock-Up">
-      </div>
-      <div class="column text">
-          <h2><span class="light"><strong>Swap &amp; Switch<span class="light">&nbsp;</span></strong><span class="light">the Blocks to create sites quickly</span></span></h2>
-          <p>Quickly assemble and create custom sites with 16 design blocks for seven different sections.</p>
-      </div>  
-    </div>
-  </div>
-</section>
-
-
-
-
-<section class="block block-feature-1">
-  <div class="container">
-    <div class="columns">
-      <div class="column text">
-        <h2><span class="light"><strong>Customize Blocks</strong><span class="light">&nbsp;to make quick edits throughout your new site</span></span></h2>
-        <p>Each block comes with custom Front Matter that can easily be edited in Forestry's UI.</p>
-      </div>
-      <div class="column media">
-        <img src="gifs/signUp-iphone-gif.gif" alt="Customize Blocks">
-      </div>
-    </div>      
-  </div>
-</section>
-
-
-<section class="block block-one-column-1">
-  <div class="container">
-    <div class="columns">
-      <div class="column">
-        <h3>ALL YOUR CONTENT IN ONE LINK</h3>
-        <p>FREE tool for instagram bio, twitter posts, tiktok videos etc.</p>
-      </div>        
-    </div>
-  </div>
-</section>
-
 
                     <div class="col-md-6 order-md-2 order-1">
 
@@ -215,7 +170,49 @@ style="background-image: url('/images/hero-2-bg.png')"
                     </div>
             </div>
         </div>
+		
+<section id="features" class="block block-feature-2">
+  <div class="container">
+    <div class="columns">
+      <div class="column media">
+          <img style="width: 60%; height: 60%;" src="gifs/signUp-iphone-gif.gif" alt="Product Shot">
+      </div>
+      <div class="column text">
+          <h2><span class="light"><strong>Swap &amp; Switch<span class="light">&nbsp;</span></strong><span class="light">the Blocks to create sites quickly</span></span></h2>
+          <p>Quickly assemble and create custom sites with 16 design blocks for seven different sections.</p>
+      </div>  
+    </div>
+  </div>
+</section>
 
+
+
+
+<section class="block block-feature-1">
+  <div class="container">
+    <div class="columns">
+      <div class="column text">
+        <h2><span class="light"><strong>Customize Blocks</strong><span class="light">&nbsp;to make quick edits throughout your new site</span></span></h2>
+        <p>Each block comes with custom Front Matter that can easily be edited in Forestry's UI.</p>
+      </div>
+      <div class="column media">
+        <img style="width: 60%; height: 60%;" src="gifs/signUp-iphone-gif.gif" alt="Product Shot">
+      </div>
+    </div>      
+  </div>
+</section>
+
+
+<section class="block block-one-column-1">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <h3>ALL YOUR CONTENT IN ONE LINK</h3>
+        <p>FREE tool for instagram bio, twitter posts, tiktok videos etc.</p>
+      </div>        
+    </div>
+  </div>
+</section>
     <!-- This website is using cookies information here -->
     <?php include 'includes/cookie-info.php'; ?>
 
