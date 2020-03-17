@@ -26,8 +26,8 @@ if(isset($_POST['search']) && !empty($_POST['search'])) {
             <div class='col-8'>
                 <div class='row'>
                     <div class='col-12'>
-                        <p class='font-weight-bold w-75 h3 ranking-name'>
-                            <a href='<?php echo $user->screenName ?>' class='link text-dark'><?php echo $user->screenName ?></a>
+                        <p class='font-weight-bold w-100 h3 ranking-name'>
+                            <a href='<?php echo $user->screenName ?>' class='link text-dark' style='word-break: break-all;'><?php echo $user->screenName ?></a>
                         </p>
                     </div>
                     <div class='col-12 mb-2 mt-1'>
@@ -89,8 +89,8 @@ if(isset($_POST['search']) && !empty($_POST['search'])) {
             <div class="col-8">
                 <div class="row">
                     <div class="col-12">
-                        <p class='font-weight-bold w-75 h3 ranking-name'>
-                            <a href="<?php echo $rankingUserData->screenName; ?>" class='link text-dark'><?php echo $rankingUserData->screenName; ?></a>
+                        <p class='font-weight-bold w-100 h3 ranking-name'>
+                            <a href="<?php echo $rankingUserData->screenName; ?>" class='link text-dark' style='word-break: break-all;'><?php echo $rankingUserData->screenName; ?></a>
                         </p>
                     </div>
                     <div class="col-12 mb-2 mt-1">
