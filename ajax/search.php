@@ -45,7 +45,7 @@ if(isset($_POST['search']) && !empty($_POST['search'])) {
                             
                          ?>
                             <a href="<?php echo $userSM[$k]->smedia_link ?>" class='link d-flex social-link-click' data-sociallink='<?php echo $userSM[$k]->id ?>' target='_blank'>
-                                <span class='socicon-<?php echo $userSM[$k]->smedia ?> mx-3 smedia-icon ranking-social' style='font-size: 1.9rem;'>
+                                <img src='socialmedia-icons/$socialMediaRow->smedia.svg' class='smedia-icon-index'>
                             </span>
                         </a> 
                         <?php } } ?>  
@@ -108,7 +108,7 @@ if(isset($_POST['search']) && !empty($_POST['search'])) {
                             
                          ?>
                             <a href="<?php echo $rankingUserSM[$k]->smedia_link ?>" class='link d-flex social-link-click' data-sociallink='<?php echo $rankingUserSM[$k]->id ?>' target='_blank'>
-                                <span class='socicon-<?php echo $rankingUserSM[$k]->smedia ?> mx-3 smedia-icon ranking-social' style='font-size: 1.9rem;'>
+                                <img src='socialmedia-icons/$socialMediaRow->smedia.svg' class='smedia-icon-index'>
                             </span>
                         </a> 
                         <?php } } ?>  
