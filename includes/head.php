@@ -19,5 +19,10 @@ if($functions->loggedIn()) {
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/dark-mode.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;subset=latin-ext" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:900&display=swap" rel="stylesheet">
+    <!--  BOOTSTRAP include  (TO DELETE) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;subset=latin-ext" rel="stylesheet">
 </head>
 
