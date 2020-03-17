@@ -17,11 +17,7 @@ if($functions->loggedIn()) {
     <link rel="icon" href="logo-little.png">
     <title>SocialsHub - one link to all your content</title>
     <link rel="stylesheet" href="css/style.css">
-<<<<<<< HEAD
     <!-- <link rel="stylesheet" href="css/dark-mode.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;subset=latin-ext" rel="stylesheet">
-=======
-    <link rel="stylesheet" href="css/dark-mode.css">
->>>>>>> 48d47904d423d8c1dadddd8380d9b4c4068f81f6
 </head>
 
