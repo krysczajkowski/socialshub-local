@@ -84,7 +84,8 @@
                 } else {
                     //Adding user to database
                     $functions->register_user($reg_email, $reg_password, $reg_name, 0);
-                    header('Location: welcome.php');
+                    $_SESSION['smedia-tutorial_access'] = true;
+                    header('Location: smedia-tutorial.php');
 
                 }
             }
@@ -171,7 +172,7 @@ style="background-image: url('/images/hero-2-bg.png')"
                     </div>
             </div>
         </div>
-		</center>
+</center>
 <section id="features" class="block block-feature-2">
   <div class="container">
     <div class="columns">
