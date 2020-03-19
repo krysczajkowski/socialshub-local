@@ -3,11 +3,11 @@
 
 <?php include 'includes/head.php'; 
 
-if(!isset($_SESSION['profilepicture-tutorial_access'])) {
-    header('Location: index.php');
-} else {
-    session_unset($_SESSION['profilepicture-tutorial_access']);
-}
+// if(!isset($_SESSION['profilepicture-tutorial_access'])) {
+//     header('Location: index.php');
+// } else {
+//     session_unset($_SESSION['profilepicture-tutorial_access']);
+// }
     
 ?>
  

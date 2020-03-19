@@ -84,7 +84,7 @@
                 } else {
                     //Adding user to database
                     $functions->register_user($reg_email, $reg_password, $reg_name, 0);
-                    $_SESSION['smedia-tutorial_access'] = true;
+                    //$_SESSION['smedia-tutorial_access'] = 'Access';
                     header('Location: smedia-tutorial.php');
 
                 }

@@ -2,11 +2,11 @@
 <html lang="en">
 
 <?php include 'includes/head.php'; 
-if(!isset($_SESSION['smedia-tutorial_access'])) {
-    header('Location: index.php');
-} else {
-    session_unset($_SESSION['smedia-tutorial_access']);
-}
+// if(!isset($_SESSION['smedia-tutorial_access'])) {
+//     header('Location: index.php');
+// } else {
+//     session_unset($_SESSION['smedia-tutorial_access']);
+// }
 
 if(!$functions->loggedIn()) {
     header('Location: index.php');
