@@ -1,246 +1,183 @@
-<?php 
-    error_reporting(0);
-
-    ob_start();
-
-    require_once "fb-files/config.php";
-
-    if (isset($_SESSION['access_token'])) {
-        header('Location: fb-files/fb-logIn.php');
-        exit();
-    }
-
-    $redirectURL = "192.168.64.2/projekty/socialshub-local/fb-files/fb-callback.php";
-    $permissions = ['email'];
-    $loginURL = $helper->getLoginUrl($redirectURL, $permissions);
-
-
-?>
-
-
-
-
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <!-- reCaptcha invisible code  -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-       
-<script>
-    function onSubmit(token) {
-        document.getElementById("i-recaptcha").submit();
-    }
-</script>
-    <?php include 'includes/head.php'; 
-    
-    if($functions->loggedIn()) {
-        if(isset($_SESSION['user_id'])) {
-            $user_id = $_SESSION['user_id'];
-        } else if (isset($_COOKIE['user_id'])) {
-            $user_id = $_COOKIE['user_id'];
-        }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/signUp.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script src="https://kit.fontawesome.com/d0961e5063.js" crossorigin="anonymous"></script>
+    <nav class="navbar px-0 mx-0 navbar-expand-md navbar-light py-1 shadow-sm sticky-top row" style="opacity: 0.95; background-color: #fff!important;">
+
+        <!-- Log In or Logout part -->
+        <a class="col-4 d-flex link" href="#">
+            <span class="link font-weight-bold mx-auto text-dark">Log In</span>
+        </a>  
         
-        $user = $functions->user_data($user_id);
-
-        header('Location: '.$user->screenName);
-        exit(); 
-    }
-
-    //Register Code
-    $eRegister = '';
-
-    if(isset($_POST['submit'])) {
-        //VALIDATE VARIABLES
-        $reg_name     = $functions->checkInput($_POST['nameRegister']);
-        $reg_email    = $functions->checkInput($_POST['emailRegister']);
-        $reg_password = $functions->checkInput($_POST['passwordRegister']);
-        $terms    = isset($_POST['accept-terms']);
-        $privacy  = isset($_POST['accept-privacy']);
-
-
-        if(!empty($username) || !empty($reg_email) || !empty($reg_password)) {
-
-            if(!filter_var($reg_email, FILTER_VALIDATE_EMAIL)) {
-                $eRegister = 'Invalid email.';
-            } else if (strlen($reg_name) < 2 || strlen($reg_name) > 25) {
-                $eRegister = 'Name must be between 2 and 25 characters.';
-            } else if ($functions->name_exist($reg_name)) {
-                $eRegister = 'Sorry, this name is already taken.';
-            } else if(!preg_match('/^[a-zA-Z0-9]+$/', $reg_name)) {
-                $eRegister = 'Only letters, numbers and white space allowed.';
-            } else if ($functions->email_exist($reg_email)) {
-                $eRegister = 'This email is already in use.';
-            } else if (strlen($reg_password) < 5 || strlen($reg_password) > 25) {
-                $eRegister = 'Password must be between 5 and 25 characters';
-            }else if ($terms != 'on' || $privacy != 'on'){
-                $eRegister = 'All checkbox are required';
-            } else {
-
-                // Call the function post_captcha
-                $res = $functions->post_captcha($_POST['g-recaptcha-response']);
-
-                if (!$res['success']) {
-                    // What happens when the reCAPTCHA is not properly set up
-                    $eRegiseter = "Sorry you can't be registered now.";
-                } else {
-                    //Adding user to database
-                    $functions->register_user($reg_email, $reg_password, $reg_name, 0);
-                    //$_SESSION['smedia-tutorial_access'] = 'Access';
-                    header('Location: smedia-tutorial.php');
-
-                }
-            }
-
-        } else {
-            $eRegister = 'All fields are required.';
-        } 
-    }
-
+        <!-- Logo Part -->
+        <a class="col-4 d-flex" href="#">
+            <img src="logo/logo.png" alt="" style="width: auto!important; height: 35px;" class="mx-auto">
+        </a>
     
-    ?>
-<body ondragstart="return false" ondrag="return false">
+        <!-- Sign In or Settings part -->
+        <a class="col-4 d-flex link" href="#slide">
+            <span class="link font-weight-bold mx-auto text-dark">Sign Up!</span>
+        </a>
+    </nav>
 
- <?php include 'includes/nav.php'; ?>
-       
-        <!-- MESSAGE IF USER DELETED ACCOUNT -->
-        <?php if(isset($_COOKIE['account_deleted'])) { ?>
-            <div class='alert bg-danger text-white alert-dismissable mt-0 mb-4 p-2'>
-                <div class="container">
-                    <button type="button" class='close' data-dismiss='alert'>
-                        <span>&times;</span>
-                    </button>
-                   <span class='text-white' style='color: #c0c0c0;'>Your account has been deleted. <b>We hope you come back soon.</b></span>
-                </div>
-            </div>
-        <?php }  ?>
 
-<section class="block block-hero-2" 
-style="background-image: url('/images/hero-2-bg.png')"
->
-  <div class="container">
-    <div class="columns">
-      <div class="column text">
-        <h1><span class="light">SocialsHub <br></span></h1>
-        <p>SocialsHub - website with social medias of your friends, celebrities and other people.</p>
-<a href="#singup" class="btn btn-dark py-2 btn-block mt-2 font-weight-bold">Sing Up now!</a>
-        
-      </div>
-      <div class="column media">
-<img style="width: 50%; height: 50%;" src="gifs/signUp-iphone-gif.gif" alt="Product Shot">
-      </div>
-    </div>
-  </div>
-</section>
+    <section class='row'>
+        <div class="col-12 intro">
+            <p class='h1 font-weight-900 lax' data-lax-preset='zoomOut-0.5 fadeOut'>All Your Content in One Link</p>
+            <p class='lax' data-lax-preset='zoomOut-0.5 fadeOut'>Free instagram, twitter, twitch, tiktok tool for everyone.</p>
+            <a href="signUp-box.php" class="btn btn-danger font-weight-bold px-5 py-2 mt-2 mx-auto lax" data-lax-preset='zoomOut-0.5 fadeOut' style='font-size: 1.2rem;'>
+                GET STARTED FOR FREE 
+            </a>
 
-<center>
-                    <div class="col-md-6 order-md-2 order-1" id="singup">
+            <div class="arrow arrow-first d-none d-lg-block lax" data-lax-preset='zoomOut-0.5 fadeOut'></div>
+            <div class="arrow arrow-second d-none d-lg-block lax"  data-lax-preset='zoomOut-0.5 fadeOut'></div>
+        </div>
+    </section>
 
-                        <div class="col-md-10 signUp-container mb-4">
-                            <div class="pt-2 ">
-                                <div class="font-open-sans">
-                                    <p class='font-weight-bold my-0' style='font-size: 1.1rem; word-break: keep-all;'>One link driving your followers to all your content.</p>
-                                    <p class='text-muted font-weight-bold my-1' style='font-size: 0.9rem;'>Tool for everyone.</p>
-                                </div>
-                                
-                                <form action="signUp.php" method="post" id='i-recaptcha'>
-                                    <input type="text" value='<?php if(isset($reg_name)) {echo $reg_name;} ?>' class="form-control" placeholder='Name' name='nameRegister'>
-                                    <input type="email" value='<?php if(isset($reg_email)) {echo $reg_email;} ?>' class="form-control mt-2" placeholder='Email' name='emailRegister'>
-                                    <input type="Password" value='<?php if(isset($reg_password)) {echo $reg_password;} ?>' class="form-control mt-2" placeholder='Password' name='passwordRegister'>
-                                    <!-- TERMS CHECKBOX -->
-                                    <div class="custom-control custom-checkbox mt-2">
-                                        <input type="checkbox" class="custom-control-input" id="accept-terms" name='accept-terms'>
-                                        <label class="custom-control-label mt-1" for="accept-terms" style='font-size: 0.95rem;'>I agree to <a href="terms.php" target="_blank" class='text-primary'>Terms of Use</a></label>
-                                    </div>
+    <section class="row">
+        <div class="col-10 offset-1">
+            <img src="signup-img/profile.png" alt="" class='img-fluid lax rounded border' data-lax-preset='zoomIn-0.8'>
+        </div>
+    </section>
 
-                                    <!-- PRIVACY POLICY, COOKIES CHECKBOX -->
-                                    <div class="custom-control custom-checkbox mt-2">
-                                        <input type="checkbox" class="custom-control-input" id="accept-privacy" name='accept-privacy'>
-                                        <label class="custom-control-label" for="accept-privacy" style='font-size: 0.95rem;'>I agree to the <a href="privacy-policy.php" target="_blank" class='text-primary'>Privacy Policy</a>, including use of cookies</label>
-                                    </div>
-
-                                   
-
-                                    <!-- We can't use any name or id on g-recaptcha button -->
-                                    <input type="submit" class='g-recaptcha btn btn-dark py-2 btn-block mt-2 font-weight-bold' value = 'Create Account' name='submit' data-sitekey="6Lf5G6EUAAAAACxEz6LkYthE5F00o-8-heFqtrYq" data-callback="onSubmit"> 
-
-                                    <?php $functions->display_error_message($eRegister); $eRegister = '';?>
-                                </form>
-
-                            </div>
-                            <a class="fb connect mt-2 text-center w-100 text-white" id='fb-index-button'>Continue with Facebook</a>      
-                            <div id="terms-error-message" class='text-danger'></div>
-                        </div>
-                    </div>
+    <section class="row lax" data-lax-preset='zoomIn-0.8'>
+        <div class="col-12 col-lg-6" >
+            <div class="col-10 offset-1 tiles-text">
+                <p class="h3 font-weight-bold">
+                    Link to Everywhere
+                </p>
+                <p>Link driving your audience to your shop, book, music or social network profiles. Now you have one link to share everything.</p>
+        </div>
+        </div>
+        <div class="col-12 col-lg-6 container">
+            <div class="col-10 offset-1">
+                <img src="signup-img/mobileMarketing.jpg" alt="" class='img-fluid'>
             </div>
         </div>
-</center>
-<section id="features" class="block block-feature-2">
-  <div class="container">
-    <div class="columns">
-      <div class="column media">
-          <img style="width: 60%; height: 60%;" src="gifs/signUp-iphone-gif.gif" alt="Product Shot">
-      </div>
-      <div class="column text">
-          <h2><span class="light"><strong>Swap &amp; Switch<span class="light">&nbsp;</span></strong><span class="light">the Blocks to create sites quickly</span></span></h2>
-          <p>Quickly assemble and create custom sites with 16 design blocks for seven different sections.</p>
-      </div>  
-    </div>
-  </div>
-</section>
+    </section>
+
+
+    <section class="row lax" data-lax-preset='zoomIn-0.8'>
+        <div class="col-12 col-lg-6 container ">
+            <div class="col-10 offset-1">
+                <img src="signup-img/woman.jpg" alt="" class='img-fluid'>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="col-10 offset-1 tiles-text">
+                <p class="h3 font-weight-bold">
+                    Track Your Links's Clicks
+                </p>
+                <p>Track where your followers are clicking :)</p>
+            </div>
+        </div>
+    </section>
+
+
+    
+    <section class="row lax" data-lax-preset='zoomIn-0.8'>
+        <div class="col-10 offset-1 text-center container-text">
+            <p class="h3 font-weight-bold">
+                Your Profile Looks Perfect on Every Device.
+            </p>
+            <p>Everyone will get to your content.</p>
+        </div>
+        <div class="col-10 offset-1">
+            <img src="signup-img/mockup-4k.png" alt="" class='img-fluid'>
+        </div>
+    </section>
 
 
 
+    <section class="trial-block shadow3 lax" id="ContactUs" data-lax-preset='zoomIn-0.8'>
+        <div class="height250">
+            <div class="social-overlap process-scetion mt100">
+               <div class="container">
+                   <div class="row justify-content-center">
+                       <div class="col-md-10">
+                           <div class="social-bar">
+                               <div class="social-icons mb-3 iconpad text-center">
+                                   
+                                   <a href="signUp-box.php" class="slider-nav-item" ><i class="fab fa-youtube"></i></a>
+                                   <a href="signUp-box.php" class="slider-nav-item"><i class="fab fa-instagram"></i></a>
+                                   <a href="signUp-box.php" class="slider-nav-item"><i class="fab fa-twitter"></i></a>
+                                   <a href="signUp-box.php" class="slider-nav-item"><i class="fab fa-twitch"></i></a>
+                                   <a href="signUp-box.php" class="slider-nav-item"><i class="fab fa-snapchat"></i></a>
+                                   <a href="signUp-box.php" class="slider-nav-item"><i class="fab fa-facebook"></i></a>
+                                   <a href="signUp-box.php" class="slider-nav-item"><i class="fab fa-linkedin"></i></a>                                
+                                   <a href="signUp-box.php" class="slider-nav-item"><i class="fab fa-soundcloud"></i></a>
+                                   <a href="signUp-box.php" class="behance slider-nav-item"><i class="fab fa-spotify"></i></a>
+                                   <a href="signUp-box.php" target="_blank" class="slider-nav-item"><i class="fab fa-pinterest"></i></a>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+         </div>
+        </div> 
+    </section>
 
-<section class="block block-feature-1">
-  <div class="container">
-    <div class="columns">
-      <div class="column text">
-        <h2><span class="light"><strong>Customize Blocks</strong><span class="light">&nbsp;to make quick edits throughout your new site</span></span></h2>
-        <p>Each block comes with custom Front Matter that can easily be edited in Forestry's UI.</p>
-      </div>
-      <div class="column media">
-        <img style="width: 60%; height: 60%;" src="gifs/signUp-iphone-gif.gif" alt="Product Shot">
-      </div>
-    </div>      
-  </div>
-</section>
+
+    <section class="row lax" data-lax-preset='zoomIn-0.8'>
+        <div class="col-10 offset-1 text-center container-text ">
+            <p class="h3 font-weight-bold">
+                Increse Your Social Reach
+            </p>
+            <p>Increse your reach by getting on SocialsHub's interesting profiles page.</p>
+        </div>
+        <div class="col-10 offset-1">
+            <img src="signup-img/mockup-ranking-4k.png" alt="" class='img-fluid'>
+        </div>
+    </section>
+
+    
+    <section class="row lax my-5" data-lax-preset='zoomIn-0.8'>
+        <div class="col-10 offset-1 ">
+            <a href="signUp-box.php" class="btn btn-block btn-danger font-weight-bold px-5 py-3 mx-auto" style='font-size: 1.2rem;'>
+                GET STARTED FOR FREE 
+            </a>
+        </div>
+    </section>
 
 
-<section class="block block-one-column-1">
-  <div class="container">
-    <div class="columns">
-      <div class="column">
-        <h3>ALL YOUR CONTENT IN ONE LINK</h3>
-        <p>FREE tool for instagram bio, twitter posts, tiktok videos etc.</p>
-      </div>        
-    </div>
-  </div>
-</section>
-    <!-- This website is using cookies information here -->
-    <?php include 'includes/cookie-info.php'; ?>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src='js/search.js'></script>
-    <script src='js/accept-cookies.js'></script>
+    <section class="row mb-5">
+        <div class="row col-10 offset-1">
+            <div class="col-3 col-lg-1 my-2"><a href="index.php" class="font-weight-bold text-muted link">Home</a></div>
+            <div class="col-3 col-lg-1 my-2"><a href="privacy-policy.php" class="font-weight-bold text-muted link">Policy</a></div>
+            <div class="col-3 col-lg-1 my-2"><a href="terms.php" class="font-weight-bold text-muted link">Terms</a></div>
+            <div class="col-lg-3 my-2 offset-6">
+                <div class="d-flex">
+                    <span class="ml-auto font-weight-bold text-muted">© 2020 SocialsHub</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/lax.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
     <script>
-        $("#fb-index-button").click(function(){
-            if($('#accept-terms').is(':checked') && $('#accept-privacy').is(':checked')) {
-                $("#fb-index-button").addClass("btn disabled");
-                var loginURL = "<?php echo $loginURL; ?>";
-                window.location.assign(loginURL);
-            }
-            else {
-                $("#terms-error-message").text("Please accept the terms & privacy policy.")
-            }
-        });
+        window.onload = function() {
+            lax.setup() // init
 
-        // Disable Register Button after click
-        $("#signUp-submit").click(function(){
-            if($('#accept-terms').is(':checked') && $('#accept-privacy').is(':checked')) {
-                $("#signUp-submit").addClass("btn disabled");
+            const updateLax = () => {
+                lax.update(window.scrollY)
+                window.requestAnimationFrame(updateLax)
             }
-        });     
+
+            window.requestAnimationFrame(updateLax)
+        }
     </script>
-    </body>
+
+</body>
 </html>
