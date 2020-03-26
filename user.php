@@ -90,7 +90,7 @@ if ($user->id === $profileId) {
                                 <div class="col-10 offset-1 mt-2">
                                     <div class="row">
                                         <div class="col-md-10 offset-md-1">
-                                            <a href="https://socialshub.net" class='btn-block px-2 py-2 small-font mt-2 gradient-button gradient-button-1 custom-link-click' data-customlink='1' target='blank'>"Down Like That" Ft. Rick Ross, Lil Baby, S-X</a>
+                                            <a href="https://socialshub.net" class='btn-block text-light px-2 py-2 small-font mt-2 gradient-button gradient-button-1 custom-link-click' data-customlink='1' target='blank'>"Down Like That" Ft. Rick Ross, Lil Baby, S-X</a>
                                             <a href="https://socialshub.net" class='btn btn-block px-2 py-2 font-weight-bold small-font mt-2 custom-link gradient-button gradient-button-1'>Team KSI Official Playlist</a>
                                             <a href="https://socialshub.net" class='btn btn-block px-2 py-2 font-weight-bold small-font mt-2 custom-link gradient-button gradient-button-1'>My New Album!</a>
 
