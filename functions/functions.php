@@ -499,13 +499,14 @@ class Functions {
 
     //       SOCIAL MEDIA FUNCTIONS 
 
-    public function updateSocialLinks ($account_id, $socialmedia, $name, $link) {
-        $stmt = $this->pdo->prepare("UPDATE social_links SET smedia_name = :smedia_name , smedia_link = :smedia_link WHERE account_id = :account_id AND smedia = :smedia");
+    public function updateSocialLinks ($account_id, $socialmedia, $name, $link, $isBouncing) {
+        $stmt = $this->pdo->prepare("UPDATE social_links SET smedia_name = :smedia_name , smedia_link = :smedia_link , isBouncing = :isBouncing WHERE account_id = :account_id AND smedia = :smedia");
         
         $stmt->bindParam(':smedia_name', $name);
         $stmt->bindParam(':smedia_link', $link);
         $stmt->bindParam(':account_id', $account_id);
         $stmt->bindParam(':smedia', $socialmedia);
+        $stmt->bindParam(':isBouncing', $isBouncing);
         $stmt->execute();           
     }
     

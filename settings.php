@@ -95,11 +95,19 @@ if(!$functions->loggedIn()) {
                         $_SESSION[$smedia . '-inputName'] = $smedia_name;
                         
 
+                        //Checking if social media checkbox is checked 
+                        if(isset($_POST['checkbox-'.$smedia])) {
+                            $isBouncing = 1;
+                        } else {
+                            $isBouncing = 0;
+                        }
+                        
+
                         if((empty($smedia_name))) { 
 
                             $smedia_link = '';
 
-                            $functions->updateSocialLinks($user->id, $smedia , $smedia_name, $smedia_link);
+                            $functions->updateSocialLinks($user->id, $smedia , $smedia_name, $smedia_link, $isBouncing);
                             $functions->addNewSocialMedia($user->id);
                                                   
                                       
@@ -107,7 +115,7 @@ if(!$functions->loggedIn()) {
 
                             $smedia_link = $links[$smedia] . $smedia_name;
 
-                            $functions->updateSocialLinks($user->id, $smedia , $smedia_name, $smedia_link);
+                            $functions->updateSocialLinks($user->id, $smedia , $smedia_name, $smedia_link, $isBouncing);
                             $functions->addNewSocialMedia($user->id);
 
 
@@ -255,6 +263,12 @@ if(!$functions->loggedIn()) {
                                             $clickCounter = "<p class='container mt-0 mb-1 py-0'>".$socialMediaRow->smedia." has been clicked <span class='font-weight-bold'>". $clicks ."</span> times</p>";
                                         }
 
+                                        if($socialMediaRow->isBouncing == 1) {
+                                            $isChecked = 'Checked';
+                                        } else {
+                                            $isChecked = '';
+                                        }
+
 
                                         echo "
 <div class='input-group row col-12 col-md-10 no-gutters mb-1' id='accordion-".$socialMediaRow->smedia."'>
@@ -265,7 +279,6 @@ if(!$functions->loggedIn()) {
                                        
         </span>
     </div>
-
     <div class='col-10 col-lg-6 mx-0'>
         <input type='text' placeholder='Your ".$socialMediaRow->smedia." URL' class='form-control w-100' name='".$socialMediaRow->smedia."-name' id='".$socialMediaRow->smedia."-name' value='$name' >
     </div>
@@ -274,8 +287,12 @@ if(!$functions->loggedIn()) {
             <i class='fas fa-chart-pie mx-auto'></i>
         </a>
     </div>
-
     <div class='collapse mt-2 mb-2' id='collapse-".$socialMediaRow->smedia."'>".$clickCounter."</div>
+
+    <div class='custom-control custom-checkbox mb-2'>
+        <input type='checkbox' class='custom-control-input' id='checkbox-".$socialMediaRow->smedia."' name='checkbox-".$socialMediaRow->smedia."' value='1' ".$isChecked.">
+        <label for='checkbox-".$socialMediaRow->smedia."' class='custom-control-label mt-1'> I have a bike</label><br>
+    </div>
 </div>";
 
                                         
@@ -308,7 +325,7 @@ if(!$functions->loggedIn()) {
 
         </div>
     </div>
-   
+
     <!-- Including footer -->
     <?php include 'includes/footer.php'; ?>
    

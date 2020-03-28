@@ -107,8 +107,15 @@ if ($user->id === $profileId) {
                                             //Displaying social links :D
 
                                             foreach ($sm as $socialMediaRow) {
+
+                                                if($socialMediaRow->isBouncing == 1) {
+                                                    $bouncingClass = 'bounce';
+                                                } else {
+                                                    $bouncingClass = '';
+                                                }
+
                                                 if(!empty($socialMediaRow->smedia_name)) {
-                                                    echo "<a class='link social-link-click d-flex mt-1 mb-2 col-3 col-md-1' data-sociallink='$socialMediaRow->id'"; 
+                                                    echo "<a class='link social-link-click d-flex mt-1 mb-2 col-3 col-md-1 $bouncingClass' data-sociallink='$socialMediaRow->id'"; 
 
                                                     if(!empty($socialMediaRow->smedia_link)) {
                                                         echo "href='$socialMediaRow->smedia_link'";
