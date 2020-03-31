@@ -6,7 +6,7 @@
 if(!$functions->loggedIn()) {
     header('Location: index.php');
 }
-    
+
 ?>
  
 <body ondragstart="return false" ondrag="return false">
@@ -139,9 +139,9 @@ if(!$functions->loggedIn()) {
 
         
     ?>
-    
 
-    
+
+
     <div class="bg-white my-5 border rounded container">
         <div class="row settings-card">
            
@@ -270,6 +270,30 @@ if(!$functions->loggedIn()) {
                                         }
 
 
+
+                                        //Getting information for the chart
+                                        $getClickFromLastMonth = $functions->getClickFromLastMonth($socialMediaRow->id);
+
+if(!empty($getClickFromLastMonth)) {
+    $table = "
+    <div class='table-responsive'>
+        <table class='table table-sm table-bordered table-striped table-hover mt-2 mb-4'>
+            <thead class='thead-dark'>
+                <tr>
+                    <th>Date</th>
+                    <th>Clicks</th>
+                </tr>
+            </thead>
+            <tbody>
+                ".$getClickFromLastMonth."
+            </tbody>
+        </table>
+    </div>";
+} else {
+    $table = "<span class='w-100 mt-2 mb-4'>No one clicked this link yet.</span>";
+}
+
+
                                         echo "
 <div class='input-group row col-12 col-md-10 no-gutters mb-1' id='accordion-".$socialMediaRow->smedia."'>
     <div class='input-group-prepend col-12 col-lg-5 mx-0'>
@@ -293,6 +317,9 @@ if(!$functions->loggedIn()) {
         <input type='checkbox' class='custom-control-input' id='checkbox-".$socialMediaRow->smedia."' name='checkbox-".$socialMediaRow->smedia."' value='1' ".$isChecked.">
         <label for='checkbox-".$socialMediaRow->smedia."' class='custom-control-label mt-1'> I have a bike</label><br>
     </div>
+
+".$table."
+
 </div>";
 
                                         
@@ -325,6 +352,7 @@ if(!$functions->loggedIn()) {
 
         </div>
     </div>
+
 
     <!-- Including footer -->
     <?php include 'includes/footer.php'; ?>

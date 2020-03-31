@@ -80,7 +80,6 @@ if ($user->id === $profileId) {
             </div>
         </div>
 
-
    <div class="container mt-2">
             <div class="row"> 
                 <div class='col-12'>

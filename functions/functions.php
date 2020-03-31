@@ -557,6 +557,23 @@ class Functions {
         return $stmt->fetchAll(PDO::FETCH_OBJ); 
     }
 
+    public function getClickFromLastMonth($id) {
+        $stmt = $this->pdo->prepare("SELECT date, clickOn, COUNT(date) amount FROM social_links_clicks WHERE date BETWEEN date_sub(now(),INTERVAL 1 MONTH) AND now() AND clickOn = :id GROUP BY date");
+
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+
+        $result = "";
+
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $result .= "<tr><td>" . $row['date'] ."</td><td>" . $row['amount'] . "</td></tr>";
+        }
+
+        return $result;
+
+    }
+
+
     public function weekVisitors($id) {
         $stmt = $this->pdo->prepare("SELECT COUNT(id) as weekVisits FROM visitors WHERE visit_date BETWEEN date_sub(now(),INTERVAL 1 WEEK) AND now()  AND account_id = :account_id");
         $stmt->bindParam(':account_id', $id);
