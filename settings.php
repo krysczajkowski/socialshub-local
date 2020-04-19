@@ -113,6 +113,11 @@ if(!$functions->loggedIn()) {
                                       
                         } else if(!empty($smedia_name) && strlen($smedia_name) < 40) {
 
+                            //If user write all url (instead of rest) we delete unnecessary part
+                            if (strpos($smedia_name, $links[$smedia]) !== false) {
+                                $smedia_name = str_replace($links[$smedia], '', $smedia_name);
+                            }
+
                             $smedia_link = $links[$smedia] . $smedia_name;
 
                             $functions->updateSocialLinks($user->id, $smedia , $smedia_name, $smedia_link, $isBouncing);

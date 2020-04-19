@@ -601,7 +601,39 @@ class Functions {
     }
 
     //       CUSTOM LINKS FUNCTIONS   
+    public function newLinkTheme($account_id, $theme) {
+        $stmt = $this->pdo->prepare("SELECT id FROM links_theme WHERE account_id = :account_id");
+        $stmt->bindParam(':account_id', $account_id);
+        $stmt->execute();
 
+        if($stmt->rowCount() > 0) {
+            //We need to update existing theme
+
+            $stmt = $this->pdo->prepare("UPDATE links_theme SET theme = :theme WHERE account_id = :account_id");
+            $stmt->bindParam(':theme', $theme);
+            $stmt->bindParam(':account_id', $account_id);
+            $stmt->execute();
+
+            return true;
+        } else {
+            //We need to insert new row to the table
+
+            $stmt = $this->pdo->prepare("INSERT INTO links_theme (id, account_id, theme) VALUES (NULL, :account_id, :theme)");
+            $stmt->bindParam(':account_id', $account_id);
+            $stmt->bindParam(':theme', $theme);
+            $stmt->execute();
+
+            return true;
+        }
+    }
+
+    public function getLinkTheme($account_id) {
+        $stmt = $this->pdo->prepare("SELECT theme FROM links_theme WHERE account_id = :account_id");
+        $stmt->bindParam(':account_id', $account_id);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
 
     //       RANKING FUNCTIONS 
 

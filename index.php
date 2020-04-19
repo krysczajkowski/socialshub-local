@@ -3,7 +3,7 @@
 
 <?php include 'includes/head.php'; ?>
  
-<body ondragstart="return false" ondrag="return false">
+<body ondragstart="return false" ondrag="return false" class='bg-light'>
     <?php include 'includes/nav.php'; 
 
     // Sign Up or Log In popup for new users
@@ -13,7 +13,12 @@
 
     ?>
 
-    <div class="p-3 row col-10 offset-1 col-md-8 offset-md-2 mt-3">
+    <div class='w-100 text-center index-gradient p-5'>
+        <h2 class='text-white text-shadow font-montserrat font-weigt-bold'>SOCIALSHUB'S TOP 10</h2>
+        <p class='text-white font-montserrat'>Hey! Check out SocialsHub's most visited profiles in last week!</p>
+    </div>
+
+    <div class="p-3 row col-10 offset-1 col-md-8 offset-md-0 px-5 mt-3">
         <!-- <h3 class='ml-2 font-weight-bold'>The Most Interesting Profiles</h3> -->
         <input type="text" class='form-control form-control-lg search w-100' placeholder='Search users by name, email'>
     </div>
